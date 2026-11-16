@@ -1,0 +1,228 @@
+table fact_snapshot
+	lineageTag: 65056780-1ec1-5641-8209-237953cb1fdc
+	sourceLineageTag: [dbo].[fact_snapshot]
+
+	column fund_id
+		dataType: string
+		isHidden
+		lineageTag: c4b13faf-9850-5295-b9bb-792a73a9f53d
+		sourceLineageTag: fund_id
+		summarizeBy: none
+		sourceColumn: fund_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column investor_id
+		dataType: string
+		isHidden
+		lineageTag: 7e993e15-9a82-5c48-a1c8-3b0d28d868b1
+		sourceLineageTag: investor_id
+		summarizeBy: none
+		sourceColumn: investor_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column legal_entity_id
+		dataType: string
+		isHidden
+		lineageTag: 307b292b-6840-5698-a147-0b80d2d6978a
+		sourceLineageTag: legal_entity_id
+		summarizeBy: none
+		sourceColumn: legal_entity_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column period_end
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: c3537a08-c361-5f94-be4d-5cea3448daea
+		sourceLineageTag: period_end
+		summarizeBy: none
+		sourceColumn: period_end
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_key
+		dataType: int64
+		isHidden
+		lineageTag: 8df4b4b1-1ad4-536e-8808-3547cdbf3e3e
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter
+		dataType: string
+		lineageTag: 14cb915d-11a7-59bb-8c03-16cc714470eb
+		sourceLineageTag: quarter
+		summarizeBy: none
+		sourceColumn: quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column local_currency
+		dataType: string
+		lineageTag: a4bcba89-b5c0-5d5b-a1dc-013806db3ec6
+		sourceLineageTag: local_currency
+		summarizeBy: none
+		sourceColumn: local_currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column le_currency
+		dataType: string
+		lineageTag: 0686f7ca-2d9b-5bad-a97d-7e51f46699bd
+		sourceLineageTag: le_currency
+		summarizeBy: none
+		sourceColumn: le_currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column beginning_capital
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 3d1b65dc-fb1d-518d-a141-642e662b5229
+		sourceLineageTag: beginning_capital
+		summarizeBy: sum
+		sourceColumn: beginning_capital
+
+		annotation SummarizationSetBy = Automatic
+
+	column contributions
+		dataType: double
+		formatString: #,0.00
+		lineageTag: e4d31baf-7af0-5001-9620-5a4ac5a55bb6
+		sourceLineageTag: contributions
+		summarizeBy: sum
+		sourceColumn: contributions
+
+		annotation SummarizationSetBy = Automatic
+
+	column distributions
+		dataType: double
+		formatString: #,0.00
+		lineageTag: ba49114c-2129-55f6-b99d-7e99c3bbabb7
+		sourceLineageTag: distributions
+		summarizeBy: sum
+		sourceColumn: distributions
+
+		annotation SummarizationSetBy = Automatic
+
+	column management_fees
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 1569e274-ef07-5561-a7fd-99862af08160
+		sourceLineageTag: management_fees
+		summarizeBy: sum
+		sourceColumn: management_fees
+
+		annotation SummarizationSetBy = Automatic
+
+	column net_income
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 2fc02e94-6ac4-555b-a79d-a068b86336c9
+		sourceLineageTag: net_income
+		summarizeBy: sum
+		sourceColumn: net_income
+
+		annotation SummarizationSetBy = Automatic
+
+	column realized_gl
+		dataType: double
+		formatString: #,0.00
+		lineageTag: cd1a0d3d-308a-5fdb-9aa9-854e423ab783
+		sourceLineageTag: realized_gl
+		summarizeBy: sum
+		sourceColumn: realized_gl
+
+		annotation SummarizationSetBy = Automatic
+
+	column unrealized_gl
+		dataType: double
+		formatString: #,0.00
+		lineageTag: a60570c1-1f22-5a6c-95a7-23a2be387c90
+		sourceLineageTag: unrealized_gl
+		summarizeBy: sum
+		sourceColumn: unrealized_gl
+
+		annotation SummarizationSetBy = Automatic
+
+	column nav_local
+		dataType: double
+		formatString: #,0.00
+		lineageTag: b0033952-af54-5120-8677-d142adf11825
+		sourceLineageTag: nav_local
+		summarizeBy: sum
+		sourceColumn: nav_local
+
+		annotation SummarizationSetBy = Automatic
+
+	column nav_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 8e425dea-1164-56ef-b7c0-9d4c1216b28a
+		sourceLineageTag: nav_usd
+		summarizeBy: sum
+		sourceColumn: nav_usd
+
+		annotation SummarizationSetBy = Automatic
+
+	column nav_cad
+		dataType: double
+		formatString: #,0.00
+		lineageTag: dd0c2606-e456-5a3b-82da-1a50abbc8134
+		sourceLineageTag: nav_cad
+		summarizeBy: sum
+		sourceColumn: nav_cad
+
+		annotation SummarizationSetBy = Automatic
+
+	column nav_le
+		dataType: double
+		formatString: #,0.00
+		lineageTag: bef4df0b-4ba5-5140-8f1a-c27fd4f65642
+		sourceLineageTag: nav_le
+		summarizeBy: sum
+		sourceColumn: nav_le
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_id
+		dataType: string
+		isHidden
+		lineageTag: 86b04a24-ad81-5277-b32d-2ae86a2f6e72
+		sourceLineageTag: source_id
+		summarizeBy: none
+		sourceColumn: source_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_file
+		dataType: string
+		isHidden
+		lineageTag: 919a9bcf-bc8e-537b-9c84-3ef76a163661
+		sourceLineageTag: source_file
+		summarizeBy: none
+		sourceColumn: source_file
+
+		annotation SummarizationSetBy = Automatic
+
+	column file_version
+		dataType: int64
+		isHidden
+		lineageTag: a29c242d-2666-5faa-b2ce-783c327269f1
+		sourceLineageTag: file_version
+		summarizeBy: none
+		sourceColumn: file_version
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_snapshot = entity
+		mode: directLake
+		source
+			entityName: fact_snapshot
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

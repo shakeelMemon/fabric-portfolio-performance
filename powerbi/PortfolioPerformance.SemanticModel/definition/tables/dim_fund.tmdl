@@ -1,0 +1,104 @@
+table dim_fund
+	lineageTag: d15c5b69-c491-5472-86e7-2895b8fbf2b8
+	sourceLineageTag: [dbo].[dim_fund]
+
+	column fund_id
+		dataType: string
+		isHidden
+		lineageTag: 6e4ca449-2c7d-518a-9087-7f18fbc56248
+		sourceLineageTag: fund_id
+		summarizeBy: none
+		sourceColumn: fund_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column fund_name
+		dataType: string
+		lineageTag: 6b511d89-5296-507f-bd7e-59ffd340c07d
+		sourceLineageTag: fund_name
+		summarizeBy: none
+		sourceColumn: fund_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column asset_class
+		dataType: string
+		lineageTag: 8369f6ef-4666-511e-85a1-dd2bb75126ee
+		sourceLineageTag: asset_class
+		summarizeBy: none
+		sourceColumn: asset_class
+
+		annotation SummarizationSetBy = Automatic
+
+	column strategy
+		dataType: string
+		lineageTag: 35cb8e5b-6175-575f-9a85-1ffe15bc65c6
+		sourceLineageTag: strategy
+		summarizeBy: none
+		sourceColumn: strategy
+
+		annotation SummarizationSetBy = Automatic
+
+	column vintage_year
+		dataType: int64
+		lineageTag: e54196ac-fc76-58bb-8bc9-3d688830bc04
+		sourceLineageTag: vintage_year
+		summarizeBy: none
+		sourceColumn: vintage_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column fund_currency
+		dataType: string
+		lineageTag: 77730a9e-4724-5f81-a10b-0baa46875299
+		sourceLineageTag: fund_currency
+		summarizeBy: none
+		sourceColumn: fund_currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column administrator
+		dataType: string
+		lineageTag: f1a71534-5f37-5fa0-bb73-dabd92216989
+		sourceLineageTag: administrator
+		summarizeBy: none
+		sourceColumn: administrator
+
+		annotation SummarizationSetBy = Automatic
+
+	column first_close_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 8bd221f8-90dd-5f20-aeb4-179d8a37b3b1
+		sourceLineageTag: first_close_date
+		summarizeBy: none
+		sourceColumn: first_close_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column mgmt_fee_rate
+		dataType: double
+		formatString: 0.00%
+		lineageTag: b5e1c801-b849-5b27-a18d-9ca709fb9623
+		sourceLineageTag: mgmt_fee_rate
+		summarizeBy: none
+		sourceColumn: mgmt_fee_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column fund_size_local
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 4567e2da-a1e9-5596-aa4a-1f205e068469
+		sourceLineageTag: fund_size_local
+		summarizeBy: sum
+		sourceColumn: fund_size_local
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_fund = entity
+		mode: directLake
+		source
+			entityName: dim_fund
+			schemaName: dbo
+			expressionSource: DatabaseQuery

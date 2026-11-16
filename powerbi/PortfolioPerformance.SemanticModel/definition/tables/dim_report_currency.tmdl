@@ -1,0 +1,39 @@
+table dim_report_currency
+	lineageTag: 5591f857-2279-5bda-bb59-ba8b2b16a265
+	sourceLineageTag: [dbo].[dim_report_currency]
+
+	column currency_code
+		dataType: string
+		lineageTag: 4e0b2a5c-ff2d-5049-8004-149c29d7dacd
+		sourceLineageTag: currency_code
+		summarizeBy: none
+		sourceColumn: currency_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column currency_label
+		dataType: string
+		lineageTag: f1a2049f-5cc9-582a-b381-ae17ca37219d
+		sourceLineageTag: currency_label
+		summarizeBy: none
+		sourceColumn: currency_label
+		sortByColumn: sort_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column sort_order
+		dataType: int64
+		isHidden
+		lineageTag: 780d6acb-4281-54e2-906a-cff7cf2193cc
+		sourceLineageTag: sort_order
+		summarizeBy: none
+		sourceColumn: sort_order
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_report_currency = entity
+		mode: directLake
+		source
+			entityName: dim_report_currency
+			schemaName: dbo
+			expressionSource: DatabaseQuery

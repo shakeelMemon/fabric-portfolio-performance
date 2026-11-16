@@ -1,0 +1,209 @@
+table fact_cashflow
+	lineageTag: 97ef08eb-0ab8-55a7-a7aa-f752ed47507a
+	sourceLineageTag: [dbo].[fact_cashflow]
+
+	column cashflow_id
+		dataType: string
+		isHidden
+		lineageTag: dbb63bd1-656d-58c8-a464-fe79934db614
+		sourceLineageTag: cashflow_id
+		summarizeBy: none
+		sourceColumn: cashflow_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column fund_id
+		dataType: string
+		isHidden
+		lineageTag: e21bcd6a-e7e8-5757-b87f-9274faa9f7df
+		sourceLineageTag: fund_id
+		summarizeBy: none
+		sourceColumn: fund_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column investor_id
+		dataType: string
+		isHidden
+		lineageTag: 33f40622-9071-55dc-9133-2ebfeca95e41
+		sourceLineageTag: investor_id
+		summarizeBy: none
+		sourceColumn: investor_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column legal_entity_id
+		dataType: string
+		isHidden
+		lineageTag: 8aca546b-50e7-55a5-b8e8-8b8dd6b104bf
+		sourceLineageTag: legal_entity_id
+		summarizeBy: none
+		sourceColumn: legal_entity_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column cashflow_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: b4d3ff3f-934d-51f4-b75f-53dbbe683e78
+		sourceLineageTag: cashflow_date
+		summarizeBy: none
+		sourceColumn: cashflow_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_key
+		dataType: int64
+		isHidden
+		lineageTag: f6e4527c-0c06-5fe3-b96f-0a8f11f0efc4
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter
+		dataType: string
+		lineageTag: 89cdc020-be6a-51c6-afa7-804c4d189b57
+		sourceLineageTag: quarter
+		summarizeBy: none
+		sourceColumn: quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column cashflow_type
+		dataType: string
+		lineageTag: 1ab93716-fa4f-57a0-b962-89345c6c54a0
+		sourceLineageTag: cashflow_type
+		summarizeBy: none
+		sourceColumn: cashflow_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column flow_category
+		dataType: string
+		lineageTag: a9d9dfcc-4497-5da1-9334-2c7031f21825
+		sourceLineageTag: flow_category
+		summarizeBy: none
+		sourceColumn: flow_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column local_currency
+		dataType: string
+		lineageTag: 0a4aedab-c28a-5009-b37c-a3587ec6be86
+		sourceLineageTag: local_currency
+		summarizeBy: none
+		sourceColumn: local_currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column le_currency
+		dataType: string
+		lineageTag: fdb29f23-e35c-5426-8e5b-e10ad8434b65
+		sourceLineageTag: le_currency
+		summarizeBy: none
+		sourceColumn: le_currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount_local
+		dataType: double
+		formatString: #,0.00
+		lineageTag: ecb0f0fc-1e95-5028-a81b-d008f70929a2
+		sourceLineageTag: amount_local
+		summarizeBy: sum
+		sourceColumn: amount_local
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: cb22c285-bf4a-54c6-8da8-150ad0cfd42c
+		sourceLineageTag: amount_usd
+		summarizeBy: sum
+		sourceColumn: amount_usd
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount_cad
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 44854098-6935-50a3-8ff5-5bac8791c06d
+		sourceLineageTag: amount_cad
+		summarizeBy: sum
+		sourceColumn: amount_cad
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount_le
+		dataType: double
+		formatString: #,0.00
+		lineageTag: b6b5cd6b-ca27-5fd4-b7b9-3dfb4ad89bf7
+		sourceLineageTag: amount_le
+		summarizeBy: sum
+		sourceColumn: amount_le
+
+		annotation SummarizationSetBy = Automatic
+
+	column fx_usd
+		dataType: double
+		isHidden
+		formatString: #,0.00
+		lineageTag: af6e17ad-3b37-5f07-a23b-86b6f6f9d3d0
+		sourceLineageTag: fx_usd
+		summarizeBy: none
+		sourceColumn: fx_usd
+
+		annotation SummarizationSetBy = Automatic
+
+	column fx_cad
+		dataType: double
+		isHidden
+		formatString: #,0.00
+		lineageTag: 676a6eda-c73b-55c8-8e81-fe76c894880f
+		sourceLineageTag: fx_cad
+		summarizeBy: none
+		sourceColumn: fx_cad
+
+		annotation SummarizationSetBy = Automatic
+
+	column fx_le
+		dataType: double
+		isHidden
+		formatString: #,0.00
+		lineageTag: a7312fd0-bde6-54b8-b685-ea230c963101
+		sourceLineageTag: fx_le
+		summarizeBy: none
+		sourceColumn: fx_le
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_id
+		dataType: string
+		isHidden
+		lineageTag: 2d75a66b-ec4b-5722-ad87-d69305002f60
+		sourceLineageTag: source_id
+		summarizeBy: none
+		sourceColumn: source_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_file
+		dataType: string
+		isHidden
+		lineageTag: d7bec64a-30fe-5b73-8ef9-6c13ec6d44fa
+		sourceLineageTag: source_file
+		summarizeBy: none
+		sourceColumn: source_file
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_cashflow = entity
+		mode: directLake
+		source
+			entityName: fact_cashflow
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

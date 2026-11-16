@@ -1,0 +1,127 @@
+table dim_date
+	dataCategory: Time
+	lineageTag: 89b00e1a-2c9f-510e-b1c9-3d64abd0f215
+	sourceLineageTag: [dbo].[dim_date]
+
+	column 'date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		isKey
+		lineageTag: edaaeec9-2b3d-51a8-a72a-28d9807c4f4b
+		sourceLineageTag: date
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_key
+		dataType: int64
+		isHidden
+		lineageTag: 4c542aea-f8fe-5f19-964b-fe38cb09fab9
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		lineageTag: 9f293227-7d79-59a0-bd1e-e7fd25173242
+		sourceLineageTag: year
+		summarizeBy: none
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter_number
+		dataType: int64
+		lineageTag: a1d60724-2972-5888-b5ea-79ad0f6fbc88
+		sourceLineageTag: quarter_number
+		summarizeBy: none
+		sourceColumn: quarter_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter_label
+		dataType: string
+		lineageTag: bc879e5f-144b-5ebc-85a7-19ada4010247
+		sourceLineageTag: quarter_label
+		summarizeBy: none
+		sourceColumn: quarter_label
+		sortByColumn: quarter_sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter_sort
+		dataType: int64
+		isHidden
+		lineageTag: 13002263-149a-5dd4-aafc-1ecc4b15e68b
+		sourceLineageTag: quarter_sort
+		summarizeBy: none
+		sourceColumn: quarter_sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter_end_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 5aea88fd-f5eb-51f8-beec-d70a6766e835
+		sourceLineageTag: quarter_end_date
+		summarizeBy: none
+		sourceColumn: quarter_end_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_number
+		dataType: int64
+		lineageTag: 233f390d-26f0-5310-b72d-4c2de04e836e
+		sourceLineageTag: month_number
+		summarizeBy: none
+		sourceColumn: month_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_label
+		dataType: string
+		lineageTag: 40a5744a-4c72-5841-b947-c89d5c23c6d9
+		sourceLineageTag: month_label
+		summarizeBy: none
+		sourceColumn: month_label
+		sortByColumn: month_sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_sort
+		dataType: int64
+		isHidden
+		lineageTag: 49762786-ddfa-5172-bc53-94ec0987bdb1
+		sourceLineageTag: month_sort
+		summarizeBy: none
+		sourceColumn: month_sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_quarter_end
+		dataType: boolean
+		lineageTag: 8f855af6-6432-5a29-ab9b-0a44c03f4307
+		sourceLineageTag: is_quarter_end
+		summarizeBy: none
+		sourceColumn: is_quarter_end
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_reported_quarter
+		dataType: boolean
+		lineageTag: 8efa6fdf-edc3-5a9d-9bdb-90bf0bd3542f
+		sourceLineageTag: is_reported_quarter
+		summarizeBy: none
+		sourceColumn: is_reported_quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_date = entity
+		mode: directLake
+		source
+			entityName: dim_date
+			schemaName: dbo
+			expressionSource: DatabaseQuery

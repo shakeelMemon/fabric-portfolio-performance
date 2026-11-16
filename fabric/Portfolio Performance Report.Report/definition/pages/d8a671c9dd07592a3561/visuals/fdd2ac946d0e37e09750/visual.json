@@ -1,0 +1,154 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
+  "name": "fdd2ac946d0e37e09750",
+  "position": {
+    "x": 10.867924528301886,
+    "y": 0,
+    "z": 0,
+    "height": 230.03773584905659,
+    "width": 1892.8301886792451,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "Commitment"
+                }
+              },
+              "queryRef": "measure_table.Commitment",
+              "nativeQueryRef": "Commitment"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "Paid In"
+                }
+              },
+              "queryRef": "measure_table.Paid In",
+              "nativeQueryRef": "Paid In"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "Distributions"
+                }
+              },
+              "queryRef": "measure_table.Distributions",
+              "nativeQueryRef": "Distributions"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "NAV"
+                }
+              },
+              "queryRef": "measure_table.NAV",
+              "nativeQueryRef": "NAV"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "Unfunded"
+                }
+              },
+              "queryRef": "measure_table.Unfunded",
+              "nativeQueryRef": "Unfunded"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "DPI"
+                }
+              },
+              "queryRef": "measure_table.DPI",
+              "nativeQueryRef": "DPI"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "TVPI"
+                }
+              },
+              "queryRef": "measure_table.TVPI",
+              "nativeQueryRef": "TVPI"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "Net IRR"
+                }
+              },
+              "queryRef": "measure_table.Net IRR",
+              "nativeQueryRef": "Net IRR"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "measure_table"
+                  }
+                },
+                "Property": "Commitment"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

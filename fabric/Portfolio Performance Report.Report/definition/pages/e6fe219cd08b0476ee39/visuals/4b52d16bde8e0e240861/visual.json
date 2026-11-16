@@ -1,0 +1,136 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
+  "name": "4b52d16bde8e0e240861",
+  "position": {
+    "x": 11.964687554093821,
+    "y": 53.8410939934222,
+    "z": 2,
+    "height": 183.45854249610525,
+    "width": 1880.450060585079,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "Cost Basis"
+                }
+              },
+              "queryRef": "measure_table.Cost Basis",
+              "nativeQueryRef": "Cost Basis"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "Fair Value"
+                }
+              },
+              "queryRef": "measure_table.Fair Value",
+              "nativeQueryRef": "Fair Value"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "Gross MOIC"
+                }
+              },
+              "queryRef": "measure_table.Gross MOIC",
+              "nativeQueryRef": "Gross MOIC"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "Gross IRR"
+                }
+              },
+              "queryRef": "measure_table.Gross IRR",
+              "nativeQueryRef": "Gross IRR"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "Principal Outstanding"
+                }
+              },
+              "queryRef": "measure_table.Principal Outstanding",
+              "nativeQueryRef": "Principal Outstanding"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "Accrued Interest"
+                }
+              },
+              "queryRef": "measure_table.Accrued Interest",
+              "nativeQueryRef": "Accrued Interest"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "Weighted Avg Coupon"
+                }
+              },
+              "queryRef": "measure_table.Weighted Avg Coupon",
+              "nativeQueryRef": "Weighted Avg Coupon"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "Non-Performing %"
+                }
+              },
+              "queryRef": "measure_table.Non-Performing %",
+              "nativeQueryRef": "Non-Performing %"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

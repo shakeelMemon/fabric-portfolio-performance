@@ -1,0 +1,184 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
+  "name": "4228411d9b3208158c43",
+  "position": {
+    "x": 11.964687554093821,
+    "y": 53.8410939934222,
+    "z": 2000,
+    "height": 582.28146096589933,
+    "width": 1880.450060585079,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_investor"
+                    }
+                  },
+                  "Property": "investor_name"
+                }
+              },
+              "queryRef": "dim_investor.investor_name",
+              "nativeQueryRef": "investor_name",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_fund"
+                    }
+                  },
+                  "Property": "fund_name"
+                }
+              },
+              "queryRef": "dim_fund.fund_name",
+              "nativeQueryRef": "fund_name",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "Commitment"
+                }
+              },
+              "queryRef": "measure_table.Commitment",
+              "nativeQueryRef": "Commitment"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "Paid In"
+                }
+              },
+              "queryRef": "measure_table.Paid In",
+              "nativeQueryRef": "Paid In"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "Unfunded"
+                }
+              },
+              "queryRef": "measure_table.Unfunded",
+              "nativeQueryRef": "Unfunded"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "Distributions"
+                }
+              },
+              "queryRef": "measure_table.Distributions",
+              "nativeQueryRef": "Distributions"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "NAV"
+                }
+              },
+              "queryRef": "measure_table.NAV",
+              "nativeQueryRef": "NAV"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "DPI"
+                }
+              },
+              "queryRef": "measure_table.DPI",
+              "nativeQueryRef": "DPI"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "RVPI"
+                }
+              },
+              "queryRef": "measure_table.RVPI",
+              "nativeQueryRef": "RVPI"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "TVPI"
+                }
+              },
+              "queryRef": "measure_table.TVPI",
+              "nativeQueryRef": "TVPI"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "Net IRR"
+                }
+              },
+              "queryRef": "measure_table.Net IRR",
+              "nativeQueryRef": "Net IRR"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
+  "name": "74c9dd10d3ce096de449",
+  "position": {
+    "x": 1344,
+    "y": 54,
+    "z": 3,
+    "height": 582,
+    "width": 576,
+    "tabOrder": 3
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_nav_bridge"
+                    }
+                  },
+                  "Property": "component"
+                }
+              },
+              "queryRef": "gold_nav_bridge.component",
+              "nativeQueryRef": "component"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "Bridge Amount"
+                }
+              },
+              "queryRef": "measure_table.Bridge Amount",
+              "nativeQueryRef": "Bridge Amount"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

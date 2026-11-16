@@ -1,0 +1,118 @@
+table gold_nav_bridge
+	lineageTag: 721e9038-9a78-5479-89b9-d628f02aede6
+	sourceLineageTag: [dbo].[gold_nav_bridge]
+
+	column fund_id
+		dataType: string
+		isHidden
+		lineageTag: 65d2e24f-e360-5963-8803-29e0c6933a1c
+		sourceLineageTag: fund_id
+		summarizeBy: none
+		sourceColumn: fund_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column investor_id
+		dataType: string
+		isHidden
+		lineageTag: fd7a795c-ce3a-5662-8226-bd643feec7a1
+		sourceLineageTag: investor_id
+		summarizeBy: none
+		sourceColumn: investor_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column legal_entity_id
+		dataType: string
+		isHidden
+		lineageTag: c8201306-e6bb-5e52-b923-9d0512c0b174
+		sourceLineageTag: legal_entity_id
+		summarizeBy: none
+		sourceColumn: legal_entity_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column period_end
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: ec5c75f5-c733-534a-9cd9-c4689a81ffe8
+		sourceLineageTag: period_end
+		summarizeBy: none
+		sourceColumn: period_end
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_key
+		dataType: int64
+		isHidden
+		lineageTag: 7e2401b0-05a5-5357-b866-5d83a7815999
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter
+		dataType: string
+		lineageTag: 2573fa35-77b1-58a6-aafb-8d506904d1f1
+		sourceLineageTag: quarter
+		summarizeBy: none
+		sourceColumn: quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column currency_code
+		dataType: string
+		lineageTag: ff32fc97-9791-54c5-ba3d-b5c8019127c6
+		sourceLineageTag: currency_code
+		summarizeBy: none
+		sourceColumn: currency_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column component
+		dataType: string
+		lineageTag: 6d2069db-2764-58bb-b585-66c7e586669f
+		sourceLineageTag: component
+		summarizeBy: none
+		sourceColumn: component
+		sortByColumn: component_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column component_order
+		dataType: int64
+		isHidden
+		lineageTag: 7da737b3-9998-5de6-a093-629559bc1535
+		sourceLineageTag: component_order
+		summarizeBy: none
+		sourceColumn: component_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount
+		dataType: double
+		formatString: #,0.00
+		lineageTag: cecea3fa-0cf6-5400-b4c7-758341c55094
+		sourceLineageTag: amount
+		summarizeBy: sum
+		sourceColumn: amount
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_closing
+		dataType: boolean
+		isHidden
+		lineageTag: 54a30d79-5aef-536b-8f20-df1d10876953
+		sourceLineageTag: is_closing
+		summarizeBy: none
+		sourceColumn: is_closing
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_nav_bridge = entity
+		mode: directLake
+		source
+			entityName: gold_nav_bridge
+			schemaName: dbo
+			expressionSource: DatabaseQuery

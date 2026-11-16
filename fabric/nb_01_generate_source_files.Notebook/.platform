@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "nb_01_generate_source_files",
+    "description": "synthetic fund-administrator deliveries"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "cf6568ad-7a0f-5989-8947-6f8249a8d0b8"
+  }
+}

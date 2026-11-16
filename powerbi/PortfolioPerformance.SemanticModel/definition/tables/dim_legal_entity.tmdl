@@ -1,0 +1,47 @@
+table dim_legal_entity
+	lineageTag: 33d8711a-ac54-5104-8f7e-4c27050ab4ca
+	sourceLineageTag: [dbo].[dim_legal_entity]
+
+	column legal_entity_id
+		dataType: string
+		isHidden
+		lineageTag: fad67a0f-60a3-52f9-8793-051ba3ef62dd
+		sourceLineageTag: legal_entity_id
+		summarizeBy: none
+		sourceColumn: legal_entity_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column legal_entity_name
+		dataType: string
+		lineageTag: 78a03b8f-a6f8-552d-bced-096414039e61
+		sourceLineageTag: legal_entity_name
+		summarizeBy: none
+		sourceColumn: legal_entity_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column jurisdiction
+		dataType: string
+		lineageTag: 8634a143-6e4e-534a-87e7-dd04ff04bef3
+		sourceLineageTag: jurisdiction
+		summarizeBy: none
+		sourceColumn: jurisdiction
+
+		annotation SummarizationSetBy = Automatic
+
+	column functional_currency
+		dataType: string
+		lineageTag: d655e5b3-1a91-5673-894b-046bcec8bf69
+		sourceLineageTag: functional_currency
+		summarizeBy: none
+		sourceColumn: functional_currency
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_legal_entity = entity
+		mode: directLake
+		source
+			entityName: dim_legal_entity
+			schemaName: dbo
+			expressionSource: DatabaseQuery

@@ -1,0 +1,5 @@
+role 'Portfolio Team'
+	modelPermission: read
+
+	annotation PBI_Id = df98af02844f4ceab9040f2f9c2125eb
+

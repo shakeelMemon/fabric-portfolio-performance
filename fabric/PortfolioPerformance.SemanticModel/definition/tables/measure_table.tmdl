@@ -1,0 +1,354 @@
+table measure_table
+	lineageTag: dce5c1ec-1e4c-5c9d-8cd2-3ed345bac1d5
+	sourceLineageTag: [dbo].[measure_table]
+
+	/// Reporting currency picked on the Currency slicer (default USD).
+	measure 'Selected Currency' = SELECTEDVALUE ( dim_report_currency[currency_code], "USD" )
+		displayFolder: Selection
+		lineageTag: f087a0f0-d16a-53cd-92cd-e4b0c4034509
+
+	/// Latest quarter end in the current date filter, capped at the latest quarter the administrators delivered.
+	measure 'As Of Date' =
+			VAR _picked = MAX ( dim_date[quarter_end_date] )
+			VAR _latest = CALCULATE ( MAX ( fact_snapshot[period_end] ), REMOVEFILTERS ( dim_date ) )
+			RETURN
+			    IF ( ISBLANK ( _picked ), _latest, MIN ( _picked, _latest ) )
+		formatString: yyyy-mm-dd
+		displayFolder: Selection
+		lineageTag: dc343caa-b02a-5cca-a3b4-e5d86fa6085a
+
+	/// Dynamic subtitle for page headers.
+	measure 'Report Title' = "As of " & FORMAT ( [As Of Date], "mmmm d, yyyy" ) & "  ·  " & SWITCH ( [Selected Currency], "LOCAL", "fund currency", "LE", "legal-entity currency", [Selected Currency] )
+		displayFolder: Selection
+		lineageTag: 65a4901a-9552-51c3-b83e-70cbeca1b41b
+
+	/// Commitments made on or before the as-of date (converted at commitment-date FX).
+	measure Commitment =
+			VAR _asof = [As Of Date]
+			VAR _ccy = [Selected Currency]
+			RETURN
+			    CALCULATE ( SWITCH ( _ccy, "USD", SUM ( fact_commitment[commitment_usd] ), "CAD", SUM ( fact_commitment[commitment_cad] ), "LOCAL", IF ( DISTINCTCOUNT ( fact_commitment[local_currency] ) = 1, SUM ( fact_commitment[commitment_local] ) ), "LE", IF ( DISTINCTCOUNT ( fact_commitment[le_currency] ) = 1, SUM ( fact_commitment[commitment_le] ) ) ), fact_commitment[commitment_date] <= _asof )
+		formatString: #,0;(#,0)
+		displayFolder: Capital
+		lineageTag: a41f79b7-efb6-5618-b09c-916309ef0080
+
+	/// Capital called including fees, from inception to the as-of date.
+	measure 'Paid In' =
+			VAR _asof = [As Of Date]
+			VAR _ccy = [Selected Currency]
+			RETURN
+			    CALCULATE (
+			        SWITCH ( _ccy, "USD", SUM ( fact_cashflow[amount_usd] ), "CAD", SUM ( fact_cashflow[amount_cad] ), "LOCAL", IF ( DISTINCTCOUNT ( fact_cashflow[local_currency] ) = 1, SUM ( fact_cashflow[amount_local] ) ), "LE", IF ( DISTINCTCOUNT ( fact_cashflow[le_currency] ) = 1, SUM ( fact_cashflow[amount_le] ) ) ),
+			        fact_cashflow[flow_category] = "PAID_IN",
+			        REMOVEFILTERS ( dim_date ),
+			        fact_cashflow[cashflow_date] <= _asof
+			    )
+		formatString: #,0;(#,0)
+		displayFolder: Capital
+		lineageTag: 91bfcd83-10a0-5c32-88fd-fa4e6d0476ea
+
+	/// Return of capital + realised gains + income distributed, inception to as-of date.
+	measure Distributions =
+			VAR _asof = [As Of Date]
+			VAR _ccy = [Selected Currency]
+			RETURN
+			    CALCULATE (
+			        SWITCH ( _ccy, "USD", SUM ( fact_cashflow[amount_usd] ), "CAD", SUM ( fact_cashflow[amount_cad] ), "LOCAL", IF ( DISTINCTCOUNT ( fact_cashflow[local_currency] ) = 1, SUM ( fact_cashflow[amount_local] ) ), "LE", IF ( DISTINCTCOUNT ( fact_cashflow[le_currency] ) = 1, SUM ( fact_cashflow[amount_le] ) ) ),
+			        fact_cashflow[flow_category] = "DISTRIBUTED",
+			        REMOVEFILTERS ( dim_date ),
+			        fact_cashflow[cashflow_date] <= _asof
+			    )
+		formatString: #,0;(#,0)
+		displayFolder: Capital
+		lineageTag: 3d8ea7bd-6062-517d-9ebf-1ad54070b350
+
+	/// Capital-account ending balance at the as-of quarter end (period-end FX).
+	measure NAV =
+			VAR _asof = [As Of Date]
+			VAR _ccy = [Selected Currency]
+			RETURN
+			    CALCULATE ( SWITCH ( _ccy, "USD", SUM ( fact_snapshot[nav_usd] ), "CAD", SUM ( fact_snapshot[nav_cad] ), "LOCAL", IF ( DISTINCTCOUNT ( fact_snapshot[local_currency] ) = 1, SUM ( fact_snapshot[nav_local] ) ), "LE", IF ( DISTINCTCOUNT ( fact_snapshot[le_currency] ) = 1, SUM ( fact_snapshot[nav_le] ) ) ), REMOVEFILTERS ( dim_date ), fact_snapshot[period_end] = _asof )
+		formatString: #,0;(#,0)
+		displayFolder: Capital
+		lineageTag: 4c63d8dc-42cb-5abb-976b-8c8321c37ef0
+
+	/// Commitment − Paid In.
+	measure Unfunded = [Commitment] - [Paid In]
+		formatString: #,0;(#,0)
+		displayFolder: Capital
+		lineageTag: 035f74ed-a602-57c1-8370-8c1d8217e155
+
+	/// Distributions + NAV.
+	measure 'Total Value' = [Distributions] + [NAV]
+		formatString: #,0;(#,0)
+		displayFolder: Capital
+		lineageTag: 5bb68f60-6ce6-5c9d-817b-89926d6466a7
+
+	/// Distributed to paid-in.
+	measure DPI = DIVIDE ( [Distributions], [Paid In] )
+		formatString: 0.00"x"
+		displayFolder: Performance
+		lineageTag: 16e473d7-11d4-5c6e-9137-bdc6a6f02dad
+
+	/// Residual value (NAV) to paid-in.
+	measure RVPI = DIVIDE ( [NAV], [Paid In] )
+		formatString: 0.00"x"
+		displayFolder: Performance
+		lineageTag: 7b0b9572-639c-5275-83ac-b34b8853beb7
+
+	/// Total value to paid-in = DPI + RVPI.
+	measure TVPI = DIVIDE ( [Distributions] + [NAV], [Paid In] )
+		formatString: 0.00"x"
+		displayFolder: Performance
+		lineageTag: e160959f-2200-5567-b72c-912027d8af84
+
+	/// LP net IRR: XIRR over calls (−), distributions (+) and NAV (+) at the as-of date, ACT/365.
+	measure 'Net IRR' =
+			VAR _asof = [As Of Date]
+			VAR _ccy = [Selected Currency]
+			VAR _flows =
+			    CALCULATETABLE (
+			        fact_irr_flow,
+			        fact_irr_flow[level] = "INVESTOR",
+			        REMOVEFILTERS ( dim_date ),
+			        fact_irr_flow[as_of_date] = _asof
+			    )
+			VAR _ok =
+			    SWITCH (
+			        _ccy,
+			        "LOCAL", COUNTROWS ( DISTINCT ( SELECTCOLUMNS ( _flows, "c", fact_irr_flow[local_currency] ) ) ) = 1,
+			        "LE", COUNTROWS ( DISTINCT ( SELECTCOLUMNS ( _flows, "c", fact_irr_flow[le_currency] ) ) ) = 1,
+			        TRUE ()
+			    )
+			VAR _t =
+			    ADDCOLUMNS (
+			        _flows,
+			        "@amt",
+			            SWITCH (
+			                _ccy,
+			                "USD", fact_irr_flow[amount_usd],
+			                "CAD", fact_irr_flow[amount_cad],
+			                "LOCAL", fact_irr_flow[amount_local],
+			                "LE", fact_irr_flow[amount_le]
+			            )
+			    )
+			RETURN
+			    IF ( _ok && NOT ISEMPTY ( _flows ), IFERROR ( XIRR ( _t, [@amt], fact_irr_flow[flow_date] ), BLANK () ) )
+		formatString: 0.0%;-0.0%
+		displayFolder: Performance
+		lineageTag: 8aaa5cd4-15ac-5a37-89ac-905eb3591de7
+
+	/// Deal-level gross IRR: XIRR over investments (−), proceeds and income (+) and fair value + accrued (+).
+	measure 'Gross IRR' =
+			VAR _asof = [As Of Date]
+			VAR _ccy = [Selected Currency]
+			VAR _flows =
+			    CALCULATETABLE (
+			        fact_irr_flow,
+			        fact_irr_flow[level] = "INVESTMENT",
+			        REMOVEFILTERS ( dim_date ),
+			        fact_irr_flow[as_of_date] = _asof
+			    )
+			VAR _ok =
+			    SWITCH (
+			        _ccy,
+			        "LOCAL", COUNTROWS ( DISTINCT ( SELECTCOLUMNS ( _flows, "c", fact_irr_flow[local_currency] ) ) ) = 1,
+			        "LE", COUNTROWS ( DISTINCT ( SELECTCOLUMNS ( _flows, "c", fact_irr_flow[le_currency] ) ) ) = 1,
+			        TRUE ()
+			    )
+			VAR _t =
+			    ADDCOLUMNS (
+			        _flows,
+			        "@amt",
+			            SWITCH (
+			                _ccy,
+			                "USD", fact_irr_flow[amount_usd],
+			                "CAD", fact_irr_flow[amount_cad],
+			                "LOCAL", fact_irr_flow[amount_local],
+			                "LE", fact_irr_flow[amount_le]
+			            )
+			    )
+			RETURN
+			    IF ( _ok && NOT ISEMPTY ( _flows ), IFERROR ( XIRR ( _t, [@amt], fact_irr_flow[flow_date] ), BLANK () ) )
+		formatString: 0.0%;-0.0%
+		displayFolder: Performance
+		lineageTag: e005c840-b87b-59af-b245-ab4f06126771
+
+	/// Deal-level (proceeds + income + fair value) / invested.
+	measure 'Gross MOIC' =
+			VAR _asof = [As Of Date]
+			VAR _ccy = [Selected Currency]
+			VAR _t =
+			    ADDCOLUMNS (
+			        CALCULATETABLE (
+			            fact_irr_flow,
+			            fact_irr_flow[level] = "INVESTMENT",
+			            REMOVEFILTERS ( dim_date ),
+			            fact_irr_flow[as_of_date] = _asof
+			        ),
+			        "@amt",
+			            SWITCH (
+			                _ccy,
+			                "USD", fact_irr_flow[amount_usd],
+			                "CAD", fact_irr_flow[amount_cad],
+			                "LOCAL", fact_irr_flow[amount_local]
+			            )
+			    )
+			RETURN
+			    DIVIDE ( SUMX ( FILTER ( _t, [@amt] > 0 ), [@amt] ), - SUMX ( FILTER ( _t, [@amt] < 0 ), [@amt] ) )
+		formatString: 0.00"x"
+		displayFolder: Performance
+		lineageTag: 9abe9a37-7f6e-5379-9869-662a52fd37b8
+
+	/// Remaining cost of investments held at the as-of date.
+	measure 'Cost Basis' =
+			VAR _asof = [As Of Date]
+			VAR _ccy = [Selected Currency]
+			RETURN
+			    CALCULATE ( SWITCH ( _ccy, "USD", SUM ( fact_position[cost_usd] ), "CAD", SUM ( fact_position[cost_cad] ), "LOCAL", IF ( DISTINCTCOUNT ( fact_position[local_currency] ) = 1, SUM ( fact_position[cost_local] ) ), "LE", BLANK () ), REMOVEFILTERS ( dim_date ), fact_position[as_of_date] = _asof )
+		formatString: #,0;(#,0)
+		displayFolder: Investments
+		lineageTag: 6c918a4b-db21-536e-994b-114e77f9a9c5
+
+	/// Fair value of investments held at the as-of date.
+	measure 'Fair Value' =
+			VAR _asof = [As Of Date]
+			VAR _ccy = [Selected Currency]
+			RETURN
+			    CALCULATE ( SWITCH ( _ccy, "USD", SUM ( fact_position[fair_value_usd] ), "CAD", SUM ( fact_position[fair_value_cad] ), "LOCAL", IF ( DISTINCTCOUNT ( fact_position[local_currency] ) = 1, SUM ( fact_position[fair_value_local] ) ), "LE", BLANK () ), REMOVEFILTERS ( dim_date ), fact_position[as_of_date] = _asof )
+		formatString: #,0;(#,0)
+		displayFolder: Investments
+		lineageTag: 02601a04-f49a-5625-b757-aa34433e907d
+
+	/// Fair Value − Cost Basis.
+	measure 'Unrealized Gain' = [Fair Value] - [Cost Basis]
+		formatString: #,0;(#,0)
+		displayFolder: Investments
+		lineageTag: d20082d8-910e-5476-972e-750f1eda5251
+
+	/// Fair Value / Cost Basis.
+	measure 'Mark to Cost' = DIVIDE ( [Fair Value], [Cost Basis] )
+		formatString: 0.00"x"
+		displayFolder: Investments
+		lineageTag: f2b78cb0-e330-586f-9f54-8c0b635ea0b2
+
+	/// Loan principal outstanding at the as-of date (incl. PIK).
+	measure 'Principal Outstanding' =
+			VAR _asof = [As Of Date]
+			VAR _ccy = [Selected Currency]
+			RETURN
+			    CALCULATE ( SWITCH ( _ccy, "USD", SUM ( fact_accrual[principal_usd] ), "CAD", SUM ( fact_accrual[principal_cad] ), "LOCAL", IF ( DISTINCTCOUNT ( fact_accrual[local_currency] ) = 1, SUM ( fact_accrual[principal_local] ) ), "LE", BLANK () ), REMOVEFILTERS ( dim_date ), fact_accrual[as_of_date] = _asof )
+		formatString: #,0;(#,0)
+		displayFolder: Private Credit
+		lineageTag: 7fd782e5-b464-5c24-875e-e1b6a165e53c
+
+	/// Interest earned but not yet received at the as-of date.
+	measure 'Accrued Interest' =
+			VAR _asof = [As Of Date]
+			VAR _ccy = [Selected Currency]
+			RETURN
+			    CALCULATE ( SWITCH ( _ccy, "USD", SUM ( fact_accrual[accrued_interest_usd] ), "CAD", SUM ( fact_accrual[accrued_interest_cad] ), "LOCAL", IF ( DISTINCTCOUNT ( fact_accrual[local_currency] ) = 1, SUM ( fact_accrual[accrued_interest_local] ) ), "LE", BLANK () ), REMOVEFILTERS ( dim_date ), fact_accrual[as_of_date] = _asof )
+		formatString: #,0;(#,0)
+		displayFolder: Private Credit
+		lineageTag: 7960864f-1e68-53d3-85a1-21c1f686ec90
+
+	/// Principal-weighted coupon of loans held at the as-of date.
+	measure 'Weighted Avg Coupon' =
+			VAR _asof = [As Of Date]
+			RETURN
+			    CALCULATE (
+			        DIVIDE ( SUMX ( fact_accrual, fact_accrual[principal_usd] * fact_accrual[coupon_rate] ), SUM ( fact_accrual[principal_usd] ) ),
+			        REMOVEFILTERS ( dim_date ),
+			        fact_accrual[as_of_date] = _asof
+			    )
+		formatString: 0.00%
+		displayFolder: Private Credit
+		lineageTag: b29628e3-3379-56b1-bc26-8f82e590e222
+
+	/// Share of principal on non-performing (PIK / impaired) loans.
+	measure 'Non-Performing %' =
+			VAR _asof = [As Of Date]
+			RETURN
+			    CALCULATE (
+			        DIVIDE (
+			            CALCULATE ( SUM ( fact_accrual[principal_usd] ), fact_accrual[loan_status] = "NON_PERFORMING" ),
+			            SUM ( fact_accrual[principal_usd] )
+			        ),
+			        REMOVEFILTERS ( dim_date ),
+			        fact_accrual[as_of_date] = _asof
+			    )
+		formatString: 0.0%
+		displayFolder: Private Credit
+		lineageTag: 68cea9ef-a074-5732-aa95-555ceb0682b7
+
+	/// NAV bridge component in the selected currency for the selected quarter (closing NAV is the waterfall total).
+	measure 'Bridge Amount' =
+			VAR _ccy = [Selected Currency]
+			VAR _asof = [As Of Date]
+			VAR _ok =
+			    SWITCH (
+			        _ccy,
+			        "LOCAL", CALCULATE ( DISTINCTCOUNT ( fact_snapshot[local_currency] ), REMOVEFILTERS ( dim_date ) ) = 1,
+			        "LE", CALCULATE ( DISTINCTCOUNT ( fact_snapshot[le_currency] ), REMOVEFILTERS ( dim_date ) ) = 1,
+			        TRUE ()
+			    )
+			RETURN
+			    IF (
+			        _ok,
+			        CALCULATE (
+			            SUM ( gold_nav_bridge[amount] ),
+			            gold_nav_bridge[currency_code] = _ccy,
+			            gold_nav_bridge[is_closing] = FALSE (),
+			            REMOVEFILTERS ( dim_date ),
+			            gold_nav_bridge[period_end] = _asof
+			        )
+			    )
+		formatString: #,0;(#,0)
+		displayFolder: NAV Bridge
+		lineageTag: 19e08afb-103b-5df4-885c-476efd8ff3c9
+
+	/// Quality-gate checks that passed in the most recent run.
+	measure 'Checks Passed (latest run)' =
+			VAR _run = CALCULATE ( MAX ( ops_dq_results[run_id] ), ALL ( ops_dq_results ) )
+			RETURN
+			    CALCULATE ( COUNTROWS ( ops_dq_results ), ops_dq_results[run_id] = _run, ops_dq_results[passed] = TRUE () )
+		formatString: 0
+		displayFolder: Data Quality
+		lineageTag: 2e65b9bb-f1ec-5ef3-a337-f429f3b274b5
+
+	/// Quality-gate checks that failed in the most recent run.
+	measure 'Checks Failed (latest run)' =
+			VAR _run = CALCULATE ( MAX ( ops_dq_results[run_id] ), ALL ( ops_dq_results ) )
+			RETURN
+			    CALCULATE ( COUNTROWS ( ops_dq_results ), ops_dq_results[run_id] = _run, ops_dq_results[passed] = FALSE () ) + 0
+		formatString: 0
+		displayFolder: Data Quality
+		lineageTag: 238a101e-4add-531a-948c-653c959ed916
+
+	column id
+		dataType: int64
+		isHidden
+		lineageTag: 185f6fe1-6923-5d4d-be58-bd827394b781
+		sourceLineageTag: id
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column note
+		dataType: string
+		isHidden
+		lineageTag: 67a9422d-4c1b-53f2-8804-9089cb3d0296
+		sourceLineageTag: note
+		summarizeBy: none
+		sourceColumn: note
+
+		annotation SummarizationSetBy = Automatic
+
+	partition measure_table = entity
+		mode: directLake
+		source
+			entityName: measure_table
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

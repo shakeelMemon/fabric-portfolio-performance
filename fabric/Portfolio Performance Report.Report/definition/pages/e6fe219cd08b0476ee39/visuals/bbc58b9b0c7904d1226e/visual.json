@@ -1,0 +1,164 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
+  "name": "bbc58b9b0c7904d1226e",
+  "position": {
+    "x": 11.964687554093821,
+    "y": 285.15838670590273,
+    "z": 3,
+    "height": 356.94651203046567,
+    "width": 1880.450060585079,
+    "tabOrder": 3
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_investment"
+                    }
+                  },
+                  "Property": "investment_name"
+                }
+              },
+              "queryRef": "dim_investment.investment_name",
+              "nativeQueryRef": "investment_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_investment"
+                    }
+                  },
+                  "Property": "fund_name"
+                }
+              },
+              "queryRef": "dim_investment.fund_name",
+              "nativeQueryRef": "fund_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_investment"
+                    }
+                  },
+                  "Property": "instrument"
+                }
+              },
+              "queryRef": "dim_investment.instrument",
+              "nativeQueryRef": "instrument"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_investment"
+                    }
+                  },
+                  "Property": "sector"
+                }
+              },
+              "queryRef": "dim_investment.sector",
+              "nativeQueryRef": "sector"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_investment"
+                    }
+                  },
+                  "Property": "country"
+                }
+              },
+              "queryRef": "dim_investment.country",
+              "nativeQueryRef": "country"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "Cost Basis"
+                }
+              },
+              "queryRef": "measure_table.Cost Basis",
+              "nativeQueryRef": "Cost Basis"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "Fair Value"
+                }
+              },
+              "queryRef": "measure_table.Fair Value",
+              "nativeQueryRef": "Fair Value"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "Mark to Cost"
+                }
+              },
+              "queryRef": "measure_table.Mark to Cost",
+              "nativeQueryRef": "Mark to Cost"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "Gross MOIC"
+                }
+              },
+              "queryRef": "measure_table.Gross MOIC",
+              "nativeQueryRef": "Gross MOIC"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "measure_table"
+                    }
+                  },
+                  "Property": "Gross IRR"
+                }
+              },
+              "queryRef": "measure_table.Gross IRR",
+              "nativeQueryRef": "Gross IRR"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

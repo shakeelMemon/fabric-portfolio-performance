@@ -1,0 +1,178 @@
+table fact_accrual
+	lineageTag: 7baf505a-0947-51af-8190-eaaabdd970e5
+	sourceLineageTag: [dbo].[fact_accrual]
+
+	column investment_id
+		dataType: string
+		isHidden
+		lineageTag: 74a3d73e-d432-5410-94e7-8b0271762fcf
+		sourceLineageTag: investment_id
+		summarizeBy: none
+		sourceColumn: investment_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column fund_id
+		dataType: string
+		isHidden
+		lineageTag: 51bb0fa5-3874-51b1-93ce-57c9f82f0cb7
+		sourceLineageTag: fund_id
+		summarizeBy: none
+		sourceColumn: fund_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column as_of_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 6200c77d-3d8a-5e4f-a792-3261e5295412
+		sourceLineageTag: as_of_date
+		summarizeBy: none
+		sourceColumn: as_of_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_key
+		dataType: int64
+		isHidden
+		lineageTag: 6360123f-6d55-5d58-b8c9-e036b2d80ebb
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column local_currency
+		dataType: string
+		lineageTag: 69d90246-a1a7-5194-95b9-62489af0d046
+		sourceLineageTag: local_currency
+		summarizeBy: none
+		sourceColumn: local_currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column loan_status
+		dataType: string
+		lineageTag: c82a3291-d0f9-5355-9402-2f1b17949a7e
+		sourceLineageTag: loan_status
+		summarizeBy: none
+		sourceColumn: loan_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column coupon_rate
+		dataType: double
+		formatString: 0.00%
+		lineageTag: f89f12fe-a441-5d33-abd9-568057a66d37
+		sourceLineageTag: coupon_rate
+		summarizeBy: none
+		sourceColumn: coupon_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column principal_local
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 4d567e02-6098-5fba-bf07-8d6c1818a3ee
+		sourceLineageTag: principal_local
+		summarizeBy: sum
+		sourceColumn: principal_local
+
+		annotation SummarizationSetBy = Automatic
+
+	column principal_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 8c46799b-325c-5689-8be7-fc6971e9c9b9
+		sourceLineageTag: principal_usd
+		summarizeBy: sum
+		sourceColumn: principal_usd
+
+		annotation SummarizationSetBy = Automatic
+
+	column principal_cad
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 7def8596-fa20-501d-a0f2-e17187d138b3
+		sourceLineageTag: principal_cad
+		summarizeBy: sum
+		sourceColumn: principal_cad
+
+		annotation SummarizationSetBy = Automatic
+
+	column accrued_interest_local
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 7059b04b-d387-5087-be5e-9a8bda2d2613
+		sourceLineageTag: accrued_interest_local
+		summarizeBy: sum
+		sourceColumn: accrued_interest_local
+
+		annotation SummarizationSetBy = Automatic
+
+	column accrued_interest_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: f137dd95-a185-5177-af1b-8005b655d90b
+		sourceLineageTag: accrued_interest_usd
+		summarizeBy: sum
+		sourceColumn: accrued_interest_usd
+
+		annotation SummarizationSetBy = Automatic
+
+	column accrued_interest_cad
+		dataType: double
+		formatString: #,0.00
+		lineageTag: d50cfc38-1d5c-5e8d-83f2-4365e49fdf86
+		sourceLineageTag: accrued_interest_cad
+		summarizeBy: sum
+		sourceColumn: accrued_interest_cad
+
+		annotation SummarizationSetBy = Automatic
+
+	column interest_received_qtd_local
+		dataType: double
+		formatString: #,0.00
+		lineageTag: a85fbf4d-0399-578f-88bd-7d041fbbcada
+		sourceLineageTag: interest_received_qtd_local
+		summarizeBy: sum
+		sourceColumn: interest_received_qtd_local
+
+		annotation SummarizationSetBy = Automatic
+
+	column interest_received_qtd_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 7cf58500-8ab8-5975-b47a-9d8b2ef6a293
+		sourceLineageTag: interest_received_qtd_usd
+		summarizeBy: sum
+		sourceColumn: interest_received_qtd_usd
+
+		annotation SummarizationSetBy = Automatic
+
+	column interest_received_qtd_cad
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 28a0ffb7-f330-5626-98ac-64b5409f7c1f
+		sourceLineageTag: interest_received_qtd_cad
+		summarizeBy: sum
+		sourceColumn: interest_received_qtd_cad
+
+		annotation SummarizationSetBy = Automatic
+
+	column pik_interest_qtd_local
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 8576d65e-adca-54af-9c97-0ba12f550a80
+		sourceLineageTag: pik_interest_qtd_local
+		summarizeBy: sum
+		sourceColumn: pik_interest_qtd_local
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_accrual = entity
+		mode: directLake
+		source
+			entityName: fact_accrual
+			schemaName: dbo
+			expressionSource: DatabaseQuery

@@ -1,0 +1,32 @@
+table sec_user_investor
+	isHidden
+	lineageTag: 90f234a5-daef-5082-a03c-252601a3c6e4
+	sourceLineageTag: [dbo].[sec_user_investor]
+
+	column user_upn
+		dataType: string
+		isHidden
+		lineageTag: 03da8b95-6422-545f-a444-ba9109fd1299
+		sourceLineageTag: user_upn
+		summarizeBy: none
+		sourceColumn: user_upn
+
+		annotation SummarizationSetBy = Automatic
+
+	column investor_id
+		dataType: string
+		isHidden
+		lineageTag: 14acd61b-49ff-59e2-8d9a-31881fd6461f
+		sourceLineageTag: investor_id
+		summarizeBy: none
+		sourceColumn: investor_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition sec_user_investor = entity
+		mode: directLake
+		source
+			entityName: sec_user_investor
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

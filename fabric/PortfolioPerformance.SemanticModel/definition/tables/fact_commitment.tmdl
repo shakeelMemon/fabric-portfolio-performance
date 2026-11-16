@@ -1,0 +1,129 @@
+table fact_commitment
+	lineageTag: 32b49f34-3088-5320-b804-36d0e7ff2a95
+	sourceLineageTag: [dbo].[fact_commitment]
+
+	column commitment_id
+		dataType: string
+		isHidden
+		lineageTag: 0ce0432b-8a05-5184-a7eb-49f9557adf69
+		sourceLineageTag: commitment_id
+		summarizeBy: none
+		sourceColumn: commitment_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column investor_id
+		dataType: string
+		isHidden
+		lineageTag: 5f9b3ce8-69e7-578f-a9c4-801c8b7448b7
+		sourceLineageTag: investor_id
+		summarizeBy: none
+		sourceColumn: investor_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column fund_id
+		dataType: string
+		isHidden
+		lineageTag: f0f071e1-2a82-5d1a-bff8-a1b4dbe50efd
+		sourceLineageTag: fund_id
+		summarizeBy: none
+		sourceColumn: fund_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column legal_entity_id
+		dataType: string
+		isHidden
+		lineageTag: 0049c4ca-f8b0-5563-a460-e0bc5572e83c
+		sourceLineageTag: legal_entity_id
+		summarizeBy: none
+		sourceColumn: legal_entity_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column commitment_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 54c459f5-e04b-5531-b969-9705d20d88ef
+		sourceLineageTag: commitment_date
+		summarizeBy: none
+		sourceColumn: commitment_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_key
+		dataType: int64
+		isHidden
+		lineageTag: 80ce2d2e-9353-5c88-acb6-cfe58ec575c6
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column local_currency
+		dataType: string
+		lineageTag: 2b0278ea-bbb6-5b29-b80c-3f8fc202d6f1
+		sourceLineageTag: local_currency
+		summarizeBy: none
+		sourceColumn: local_currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column le_currency
+		dataType: string
+		lineageTag: 48562a44-18b9-59df-a087-50fb63c0360d
+		sourceLineageTag: le_currency
+		summarizeBy: none
+		sourceColumn: le_currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column commitment_local
+		dataType: double
+		formatString: #,0.00
+		lineageTag: e5a92ebb-833a-5efa-a304-ab92035f6710
+		sourceLineageTag: commitment_local
+		summarizeBy: sum
+		sourceColumn: commitment_local
+
+		annotation SummarizationSetBy = Automatic
+
+	column commitment_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: afa7b885-2733-59ce-bd92-682f3a355b39
+		sourceLineageTag: commitment_usd
+		summarizeBy: sum
+		sourceColumn: commitment_usd
+
+		annotation SummarizationSetBy = Automatic
+
+	column commitment_cad
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 94893bbf-68ab-59f5-88e3-56a524e8a833
+		sourceLineageTag: commitment_cad
+		summarizeBy: sum
+		sourceColumn: commitment_cad
+
+		annotation SummarizationSetBy = Automatic
+
+	column commitment_le
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 1768258a-ac67-54de-bc24-12aa17359743
+		sourceLineageTag: commitment_le
+		summarizeBy: sum
+		sourceColumn: commitment_le
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_commitment = entity
+		mode: directLake
+		source
+			entityName: fact_commitment
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

@@ -1,0 +1,123 @@
+table dim_investment
+	lineageTag: 65253c1a-65d1-5723-b428-9a63ea185795
+	sourceLineageTag: [dbo].[dim_investment]
+
+	column investment_id
+		dataType: string
+		isHidden
+		lineageTag: dc90639d-0d5e-5ca0-8e48-97392f69cd50
+		sourceLineageTag: investment_id
+		summarizeBy: none
+		sourceColumn: investment_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column investment_name
+		dataType: string
+		lineageTag: 74e2000c-10f2-53d8-b0df-85385b5c55a6
+		sourceLineageTag: investment_name
+		summarizeBy: none
+		sourceColumn: investment_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column fund_id
+		dataType: string
+		isHidden
+		lineageTag: 5dda1a24-c576-5d50-ba3d-9da210bda560
+		sourceLineageTag: fund_id
+		summarizeBy: none
+		sourceColumn: fund_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column fund_name
+		dataType: string
+		lineageTag: 1b740c03-f02f-5873-b213-3a5a219f490f
+		sourceLineageTag: fund_name
+		summarizeBy: none
+		sourceColumn: fund_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column asset_class
+		dataType: string
+		lineageTag: 653abd1d-7297-57f2-86b6-4f41703a6fc8
+		sourceLineageTag: asset_class
+		summarizeBy: none
+		sourceColumn: asset_class
+
+		annotation SummarizationSetBy = Automatic
+
+	column instrument
+		dataType: string
+		lineageTag: 85422012-d487-5039-90ce-82711747a9d1
+		sourceLineageTag: instrument
+		summarizeBy: none
+		sourceColumn: instrument
+
+		annotation SummarizationSetBy = Automatic
+
+	column sector
+		dataType: string
+		lineageTag: 58e7a36e-afc3-570a-982c-2e60046c81a7
+		sourceLineageTag: sector
+		summarizeBy: none
+		sourceColumn: sector
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: 663b58cf-ceef-57ca-ab89-524d08f23931
+		sourceLineageTag: country
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'currency'
+		dataType: string
+		lineageTag: 68581bc5-0ac1-561c-915d-eddf404ee317
+		sourceLineageTag: currency
+		summarizeBy: none
+		sourceColumn: currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column investment_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: a760c9f8-cb0d-50bd-a9c9-82ee67569ecb
+		sourceLineageTag: investment_date
+		summarizeBy: none
+		sourceColumn: investment_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column maturity_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 75c06353-13a7-5033-b91d-10479a8ab596
+		sourceLineageTag: maturity_date
+		summarizeBy: none
+		sourceColumn: maturity_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column coupon_rate
+		dataType: double
+		formatString: 0.00%
+		lineageTag: ead98373-4277-5f9e-8e98-15849b1db95d
+		sourceLineageTag: coupon_rate
+		summarizeBy: none
+		sourceColumn: coupon_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_investment = entity
+		mode: directLake
+		source
+			entityName: dim_investment
+			schemaName: dbo
+			expressionSource: DatabaseQuery

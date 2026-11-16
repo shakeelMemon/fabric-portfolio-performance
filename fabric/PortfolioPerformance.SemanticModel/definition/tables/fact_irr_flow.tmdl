@@ -1,0 +1,178 @@
+table fact_irr_flow
+	isHidden
+	lineageTag: 4cb08895-631b-515f-a78d-ec2d1a19d78a
+	sourceLineageTag: [dbo].[fact_irr_flow]
+
+	column as_of_date
+		dataType: dateTime
+		isHidden
+		formatString: yyyy-mm-dd
+		lineageTag: e35c6139-1abb-5b94-bee6-a7568e516929
+		sourceLineageTag: as_of_date
+		summarizeBy: none
+		sourceColumn: as_of_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column level
+		dataType: string
+		isHidden
+		lineageTag: fe2d7603-9ed1-5c51-8496-437425ae36f2
+		sourceLineageTag: level
+		summarizeBy: none
+		sourceColumn: level
+
+		annotation SummarizationSetBy = Automatic
+
+	column fund_id
+		dataType: string
+		isHidden
+		lineageTag: f54c5337-e4e0-53b6-9eb4-e4190cae0700
+		sourceLineageTag: fund_id
+		summarizeBy: none
+		sourceColumn: fund_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column investor_id
+		dataType: string
+		isHidden
+		lineageTag: 2ee8eb36-20d7-54f7-99b5-ca121eeed079
+		sourceLineageTag: investor_id
+		summarizeBy: none
+		sourceColumn: investor_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column legal_entity_id
+		dataType: string
+		isHidden
+		lineageTag: 9df97850-d2cf-55f4-bfab-60cd27cff3d9
+		sourceLineageTag: legal_entity_id
+		summarizeBy: none
+		sourceColumn: legal_entity_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column investment_id
+		dataType: string
+		isHidden
+		lineageTag: 04cedab6-50d6-5d21-8aab-d9e8ffeff300
+		sourceLineageTag: investment_id
+		summarizeBy: none
+		sourceColumn: investment_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column flow_date
+		dataType: dateTime
+		isHidden
+		formatString: yyyy-mm-dd
+		lineageTag: 52c3349c-79c0-541f-b408-c146b6bdfdb6
+		sourceLineageTag: flow_date
+		summarizeBy: none
+		sourceColumn: flow_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column flow_kind
+		dataType: string
+		isHidden
+		lineageTag: e55739da-a516-5be8-936a-0ea781457fb4
+		sourceLineageTag: flow_kind
+		summarizeBy: none
+		sourceColumn: flow_kind
+
+		annotation SummarizationSetBy = Automatic
+
+	column local_currency
+		dataType: string
+		isHidden
+		lineageTag: bd7b9868-0e48-5db4-a386-d7f0e5dbc983
+		sourceLineageTag: local_currency
+		summarizeBy: none
+		sourceColumn: local_currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column le_currency
+		dataType: string
+		isHidden
+		lineageTag: b7eed961-a06a-5ffc-955f-302867fbf3ce
+		sourceLineageTag: le_currency
+		summarizeBy: none
+		sourceColumn: le_currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount_local
+		dataType: double
+		isHidden
+		formatString: #,0.00
+		lineageTag: a8dca68a-5251-5c40-a398-136168f30d13
+		sourceLineageTag: amount_local
+		summarizeBy: none
+		sourceColumn: amount_local
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount_usd
+		dataType: double
+		isHidden
+		formatString: #,0.00
+		lineageTag: 9492c222-ee4e-537f-98f5-b593e5186bcc
+		sourceLineageTag: amount_usd
+		summarizeBy: none
+		sourceColumn: amount_usd
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount_cad
+		dataType: double
+		isHidden
+		formatString: #,0.00
+		lineageTag: cf74dab5-a8a0-5f33-a520-3e525d41ae47
+		sourceLineageTag: amount_cad
+		summarizeBy: none
+		sourceColumn: amount_cad
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount_le
+		dataType: double
+		isHidden
+		formatString: #,0.00
+		lineageTag: 347820cd-4de6-5281-bcc6-22f3c8f6fd85
+		sourceLineageTag: amount_le
+		summarizeBy: none
+		sourceColumn: amount_le
+
+		annotation SummarizationSetBy = Automatic
+
+	column as_of_date_key
+		dataType: int64
+		isHidden
+		lineageTag: 006e3f53-5578-5b4e-b58e-d9eecba9bff9
+		sourceLineageTag: as_of_date_key
+		summarizeBy: none
+		sourceColumn: as_of_date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_terminal
+		dataType: boolean
+		isHidden
+		lineageTag: 88677ae1-4a98-5a4f-9e1b-24a4bd21683d
+		sourceLineageTag: is_terminal
+		summarizeBy: none
+		sourceColumn: is_terminal
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_irr_flow = entity
+		mode: directLake
+		source
+			entityName: fact_irr_flow
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

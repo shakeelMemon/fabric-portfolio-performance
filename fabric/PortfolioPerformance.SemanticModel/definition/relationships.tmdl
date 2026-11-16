@@ -1,0 +1,104 @@
+relationship 80108aee-b185-5c32-84d3-0d7724b39790
+	fromColumn: fact_commitment.fund_id
+	toColumn: dim_fund.fund_id
+
+relationship 55657c32-05fc-5ff3-abf0-bd367f360818
+	fromColumn: fact_commitment.investor_id
+	toColumn: dim_investor.investor_id
+
+relationship 8d4db925-dd45-521f-b935-19be07062926
+	fromColumn: fact_commitment.legal_entity_id
+	toColumn: dim_legal_entity.legal_entity_id
+
+relationship 625e388c-4e4f-50aa-bb7f-f94826ce536e
+	fromColumn: fact_cashflow.fund_id
+	toColumn: dim_fund.fund_id
+
+relationship b508504e-94d4-5c6b-be46-6ab9db0318f3
+	fromColumn: fact_cashflow.investor_id
+	toColumn: dim_investor.investor_id
+
+relationship b1623deb-39c5-543e-8c95-32417ecdd4ba
+	fromColumn: fact_cashflow.legal_entity_id
+	toColumn: dim_legal_entity.legal_entity_id
+
+relationship 103c44bf-03c8-5142-a242-bb56b1f0f87b
+	fromColumn: fact_snapshot.fund_id
+	toColumn: dim_fund.fund_id
+
+relationship f7103db2-5657-5b23-946b-7a0c7411d47c
+	fromColumn: fact_snapshot.investor_id
+	toColumn: dim_investor.investor_id
+
+relationship 0758e200-b256-5f5f-9b99-36427ab9d9c8
+	fromColumn: fact_snapshot.legal_entity_id
+	toColumn: dim_legal_entity.legal_entity_id
+
+relationship b61659bf-3fc8-50e0-8521-cf08daebd47f
+	fromColumn: fact_irr_flow.fund_id
+	toColumn: dim_fund.fund_id
+
+relationship 8d3b5f3d-e018-5f0d-b049-b935f09173e6
+	fromColumn: fact_irr_flow.investor_id
+	toColumn: dim_investor.investor_id
+
+relationship 791905f1-4aa9-5fed-804b-50569e9e2317
+	fromColumn: fact_irr_flow.legal_entity_id
+	toColumn: dim_legal_entity.legal_entity_id
+
+relationship df88e784-5601-5f00-96a2-6ab62ba5d6aa
+	fromColumn: gold_nav_bridge.fund_id
+	toColumn: dim_fund.fund_id
+
+relationship d2b7841b-f241-54e2-81bd-36ee1dc3e1b6
+	fromColumn: gold_nav_bridge.investor_id
+	toColumn: dim_investor.investor_id
+
+relationship c7a30cf8-91b9-5ce8-a3d8-9b93717108a0
+	fromColumn: gold_nav_bridge.legal_entity_id
+	toColumn: dim_legal_entity.legal_entity_id
+
+relationship b867d48b-6e83-5299-8c95-7c5d52e14f8c
+	fromColumn: fact_position.investment_id
+	toColumn: dim_investment.investment_id
+
+relationship 9f11a7cb-a9ff-510a-8af7-29142b4f9d17
+	fromColumn: fact_accrual.investment_id
+	toColumn: dim_investment.investment_id
+
+relationship 1d83a40f-aafe-5dc3-a670-c5c6a1211cb7
+	fromColumn: fact_irr_flow.investment_id
+	toColumn: dim_investment.investment_id
+
+relationship ce98fefb-bb21-5207-810d-46d6835a7e23
+	fromColumn: fact_position.fund_id
+	toColumn: dim_fund.fund_id
+
+relationship e7b3ffc3-c67c-5890-b7c6-b19527488efc
+	fromColumn: fact_accrual.fund_id
+	toColumn: dim_fund.fund_id
+
+relationship 31ea125d-3ed0-5168-a8a2-1fed3b65ec51
+	fromColumn: fact_cashflow.date_key
+	toColumn: dim_date.date_key
+
+relationship 3ae0ecde-b1a5-5b00-8a2d-f78f905bce0f
+	fromColumn: fact_snapshot.date_key
+	toColumn: dim_date.date_key
+
+relationship a2fe1e33-2971-596f-a0e7-566323e8d391
+	fromColumn: fact_position.date_key
+	toColumn: dim_date.date_key
+
+relationship 89a35a24-1e45-5274-bcab-86c926ef84d8
+	fromColumn: fact_accrual.date_key
+	toColumn: dim_date.date_key
+
+relationship fe286838-f3ab-565a-93d6-1dd1db8734fd
+	fromColumn: gold_nav_bridge.date_key
+	toColumn: dim_date.date_key
+
+relationship a075f8f7-9730-5f0a-927b-7670d5a1d1f5
+	fromColumn: fact_irr_flow.as_of_date_key
+	toColumn: dim_date.date_key
+

@@ -1,0 +1,76 @@
+table dim_investor
+	lineageTag: 2e725915-0861-5f63-86d9-3d083addb7a9
+	sourceLineageTag: [dbo].[dim_investor]
+
+	column investor_id
+		dataType: string
+		isHidden
+		lineageTag: 7204651f-282c-595b-b6e6-101241e2f4d1
+		sourceLineageTag: investor_id
+		summarizeBy: none
+		sourceColumn: investor_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column investor_name
+		dataType: string
+		lineageTag: 8d9d1d21-a344-5fd6-87a6-12de05426e2e
+		sourceLineageTag: investor_name
+		summarizeBy: none
+		sourceColumn: investor_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column investor_type
+		dataType: string
+		lineageTag: e2870333-9a3a-51a5-8fc9-511d50581eb7
+		sourceLineageTag: investor_type
+		summarizeBy: none
+		sourceColumn: investor_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column domicile
+		dataType: string
+		lineageTag: 5838b59a-a165-5e14-a5ed-8081a6edac78
+		sourceLineageTag: domicile
+		summarizeBy: none
+		sourceColumn: domicile
+
+		annotation SummarizationSetBy = Automatic
+
+	column legal_entity_id
+		dataType: string
+		isHidden
+		lineageTag: cd3038d2-a1d5-5af8-96f5-00781f7a3449
+		sourceLineageTag: legal_entity_id
+		summarizeBy: none
+		sourceColumn: legal_entity_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column legal_entity_name
+		dataType: string
+		lineageTag: de3523de-aaac-5018-a95a-51e0124d5f59
+		sourceLineageTag: legal_entity_name
+		summarizeBy: none
+		sourceColumn: legal_entity_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column legal_entity_currency
+		dataType: string
+		lineageTag: 4572fec4-6451-5fbc-8096-d6b48ab756e9
+		sourceLineageTag: legal_entity_currency
+		summarizeBy: none
+		sourceColumn: legal_entity_currency
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_investor = entity
+		mode: directLake
+		source
+			entityName: dim_investor
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

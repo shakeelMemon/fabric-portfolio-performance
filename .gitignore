@@ -1,0 +1,10 @@
+_local_lakehouse/
+powerbi_configured/
+__pycache__/
+*.pyc
+spark-warehouse/
+metastore_db/
+derby.log
+.pytest_cache/
+**/.pbi/localSettings.json
+**/.pbi/cache.abf

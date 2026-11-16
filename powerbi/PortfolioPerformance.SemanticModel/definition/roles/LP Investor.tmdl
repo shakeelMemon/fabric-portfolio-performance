@@ -1,0 +1,8 @@
+role 'LP Investor'
+	modelPermission: read
+
+	tablePermission dim_investor = dim_investor[investor_id] IN CALCULATETABLE ( VALUES ( sec_user_investor[investor_id] ), sec_user_investor[user_upn] = USERPRINCIPALNAME () )
+
+	tablePermission sec_user_investor = sec_user_investor[user_upn] = USERPRINCIPALNAME ()
+
+	tablePermission ops_dq_results = FALSE ()

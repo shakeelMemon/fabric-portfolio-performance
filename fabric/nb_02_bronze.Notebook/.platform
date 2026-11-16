@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "nb_02_bronze",
+    "description": "land new administrator files as-is"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "e4d97606-40d0-5898-b4cb-b391d45c4ef9"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "nb_00_setup",
+    "description": "operational tables and the source-mapping contract"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6fe7d785-e3c6-57a6-8140-07be68d59075"
+  }
+}

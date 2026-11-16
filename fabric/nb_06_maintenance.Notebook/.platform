@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "nb_06_maintenance",
+    "description": "OPTIMIZE (V-Order) and VACUUM"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "d046f93a-72f9-5eef-b7be-4c35160a2bb9"
+  }
+}

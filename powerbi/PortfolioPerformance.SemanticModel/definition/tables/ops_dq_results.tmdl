@@ -1,0 +1,92 @@
+table ops_dq_results
+	lineageTag: 4c730bdc-bafb-534e-8188-b0b33457bd7c
+	sourceLineageTag: [dbo].[ops_dq_results]
+
+	column run_id
+		dataType: string
+		lineageTag: bd58fe21-353f-511a-9d24-3ac31f189095
+		sourceLineageTag: run_id
+		summarizeBy: none
+		sourceColumn: run_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column check_id
+		dataType: string
+		lineageTag: 09d2839b-e625-5570-868f-73c5e3dc8d6a
+		sourceLineageTag: check_id
+		summarizeBy: none
+		sourceColumn: check_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column check_name
+		dataType: string
+		lineageTag: 3d50829e-e8a7-5ca9-a51a-5180b2bc9a65
+		sourceLineageTag: check_name
+		summarizeBy: none
+		sourceColumn: check_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column layer
+		dataType: string
+		lineageTag: 6ee3fb11-5956-5d05-a5fe-e3263ae17192
+		sourceLineageTag: layer
+		summarizeBy: none
+		sourceColumn: layer
+
+		annotation SummarizationSetBy = Automatic
+
+	column severity
+		dataType: string
+		lineageTag: 86db1c19-ba27-51b6-81b6-c1d075c36507
+		sourceLineageTag: severity
+		summarizeBy: none
+		sourceColumn: severity
+
+		annotation SummarizationSetBy = Automatic
+
+	column passed
+		dataType: boolean
+		lineageTag: 34ed0b21-d9de-5d17-bcfc-808c921b3d5a
+		sourceLineageTag: passed
+		summarizeBy: none
+		sourceColumn: passed
+
+		annotation SummarizationSetBy = Automatic
+
+	column failed_rows
+		dataType: int64
+		lineageTag: 45aee30a-9e2d-530f-92f0-66e67c77881c
+		sourceLineageTag: failed_rows
+		summarizeBy: none
+		sourceColumn: failed_rows
+
+		annotation SummarizationSetBy = Automatic
+
+	column detail
+		dataType: string
+		lineageTag: 1fb5ecab-f77c-5918-b0d3-0a3f79d17b02
+		sourceLineageTag: detail
+		summarizeBy: none
+		sourceColumn: detail
+
+		annotation SummarizationSetBy = Automatic
+
+	column checked_at_utc
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: f0939bd1-8293-5745-abb9-6c91891a81a4
+		sourceLineageTag: checked_at_utc
+		summarizeBy: none
+		sourceColumn: checked_at_utc
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ops_dq_results = entity
+		mode: directLake
+		source
+			entityName: ops_dq_results
+			schemaName: dbo
+			expressionSource: DatabaseQuery

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Lakehouse",
+    "displayName": "lh_portfolio",
+    "description": "Bronze/silver/gold Delta tables and landing files for portfolio reporting"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "2a5c5a75-7b0a-503d-8e44-ef57d5ca48bd"
+  }
+}

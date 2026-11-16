@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Portfolio Performance Report"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "e75182eb-adc1-b725-45cc-24860cbe17b3"
+  }
+}

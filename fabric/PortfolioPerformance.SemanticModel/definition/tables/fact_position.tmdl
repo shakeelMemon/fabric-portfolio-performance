@@ -1,0 +1,191 @@
+table fact_position
+	lineageTag: cfc58ba5-44da-5498-b799-5b2147a614db
+	sourceLineageTag: [dbo].[fact_position]
+
+	column investment_id
+		dataType: string
+		isHidden
+		lineageTag: dcd74f9d-caf0-520c-8008-ae29228428cc
+		sourceLineageTag: investment_id
+		summarizeBy: none
+		sourceColumn: investment_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column fund_id
+		dataType: string
+		isHidden
+		lineageTag: 7d78806f-7382-508d-939b-f8ae15da3c67
+		sourceLineageTag: fund_id
+		summarizeBy: none
+		sourceColumn: fund_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column as_of_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: b7d37019-368e-5222-b44f-58c6def64700
+		sourceLineageTag: as_of_date
+		summarizeBy: none
+		sourceColumn: as_of_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_key
+		dataType: int64
+		isHidden
+		lineageTag: 8870d25a-e468-558e-ba30-32dcf3d0a778
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column local_currency
+		dataType: string
+		lineageTag: 091d0959-d0f6-5321-91ae-cdd723e53de0
+		sourceLineageTag: local_currency
+		summarizeBy: none
+		sourceColumn: local_currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_local
+		dataType: double
+		formatString: #,0.00
+		lineageTag: d6b10897-2922-5dca-9e03-8e6e47bcc64f
+		sourceLineageTag: cost_local
+		summarizeBy: sum
+		sourceColumn: cost_local
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 3a2078d3-7f6a-54c4-bd60-a47799c3d858
+		sourceLineageTag: cost_usd
+		summarizeBy: sum
+		sourceColumn: cost_usd
+
+		annotation SummarizationSetBy = Automatic
+
+	column cost_cad
+		dataType: double
+		formatString: #,0.00
+		lineageTag: e0fc0c94-e1a8-517a-a931-f66668744d32
+		sourceLineageTag: cost_cad
+		summarizeBy: sum
+		sourceColumn: cost_cad
+
+		annotation SummarizationSetBy = Automatic
+
+	column fair_value_local
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 9eeee7b4-65ef-57bb-9dda-0169918e19ff
+		sourceLineageTag: fair_value_local
+		summarizeBy: sum
+		sourceColumn: fair_value_local
+
+		annotation SummarizationSetBy = Automatic
+
+	column fair_value_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: c20761ef-7d0e-5a90-84d7-6d4e11f9ed3a
+		sourceLineageTag: fair_value_usd
+		summarizeBy: sum
+		sourceColumn: fair_value_usd
+
+		annotation SummarizationSetBy = Automatic
+
+	column fair_value_cad
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 39239f08-2bdb-560b-8b5f-cb682b2251c5
+		sourceLineageTag: fair_value_cad
+		summarizeBy: sum
+		sourceColumn: fair_value_cad
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_value_local
+		dataType: double
+		formatString: #,0.00
+		lineageTag: c75455d7-8df9-591b-9953-f29845578c9b
+		sourceLineageTag: total_value_local
+		summarizeBy: sum
+		sourceColumn: total_value_local
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_value_usd
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 89fedc9f-d810-5faf-a54b-5be171acd29b
+		sourceLineageTag: total_value_usd
+		summarizeBy: sum
+		sourceColumn: total_value_usd
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_value_cad
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 014b38a2-219d-55b5-8d5c-e4e72e9e7610
+		sourceLineageTag: total_value_cad
+		summarizeBy: sum
+		sourceColumn: total_value_cad
+
+		annotation SummarizationSetBy = Automatic
+
+	column unrealized_gain_local
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 334b77aa-54d6-551f-86ab-0fa2197b9021
+		sourceLineageTag: unrealized_gain_local
+		summarizeBy: sum
+		sourceColumn: unrealized_gain_local
+
+		annotation SummarizationSetBy = Automatic
+
+	column mark_to_cost
+		dataType: double
+		lineageTag: 9dbac724-32d5-563d-9872-f0706c4acbf5
+		sourceLineageTag: mark_to_cost
+		summarizeBy: none
+		sourceColumn: mark_to_cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column fx_usd
+		dataType: double
+		isHidden
+		formatString: #,0.00
+		lineageTag: d192af9a-38c5-568b-9d4d-37370716da58
+		sourceLineageTag: fx_usd
+		summarizeBy: none
+		sourceColumn: fx_usd
+
+		annotation SummarizationSetBy = Automatic
+
+	column fx_cad
+		dataType: double
+		isHidden
+		formatString: #,0.00
+		lineageTag: 3613f675-731b-51e2-ae29-1da9ecbb7b06
+		sourceLineageTag: fx_cad
+		summarizeBy: none
+		sourceColumn: fx_cad
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_position = entity
+		mode: directLake
+		source
+			entityName: fact_position
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+

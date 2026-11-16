@@ -1,0 +1,498 @@
+{
+  "config": "{\"version\": \"5.59\", \"activeSectionIndex\": 0, \"defaultDrillFilterOtherVisuals\": true, \"settings\": {\"useStylableVisualContainerHeader\": true, \"exportDataMode\": 1}}",
+  "layoutOptimization": 0,
+  "sections": [
+    {
+      "name": "ReportSection01",
+      "displayName": "Portfolio Overview",
+      "displayOption": 1,
+      "width": 1280,
+      "height": 720,
+      "ordinal": 0,
+      "config": "{}",
+      "filters": "[]",
+      "visualContainers": [
+        {
+          "x": 16,
+          "y": 8,
+          "z": 0,
+          "width": 560,
+          "height": 44,
+          "config": "{\"name\": \"p1_title\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 8, \"z\": 0, \"width\": 560, \"height\": 44}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Portfolio Overview\", \"textStyle\": {\"fontWeight\": \"bold\", \"fontSize\": \"20pt\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 52,
+          "z": 0,
+          "width": 560,
+          "height": 40,
+          "config": "{\"name\": \"p1_sub\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 52, \"z\": 0, \"width\": 560, \"height\": 40}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"measure_table.Report Title\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Report Title\"}, \"Name\": \"measure_table.Report Title\", \"NativeReferenceName\": \"Report Title\"}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 640,
+          "y": 12,
+          "z": 0,
+          "width": 200,
+          "height": 56,
+          "config": "{\"name\": \"p1_s0\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 640, \"y\": 12, \"z\": 0, \"width\": 200, \"height\": 56}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_date.quarter_label\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_date\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"quarter_label\"}, \"Name\": \"dim_date.quarter_label\", \"NativeReferenceName\": \"quarter_label\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 850,
+          "y": 12,
+          "z": 0,
+          "width": 200,
+          "height": 56,
+          "config": "{\"name\": \"p1_s1\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 850, \"y\": 12, \"z\": 0, \"width\": 200, \"height\": 56}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_report_currency.currency_code\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_report_currency\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"currency_code\"}, \"Name\": \"dim_report_currency.currency_code\", \"NativeReferenceName\": \"currency_code\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1060,
+          "y": 12,
+          "z": 0,
+          "width": 200,
+          "height": 56,
+          "config": "{\"name\": \"p1_ac\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1060, \"y\": 12, \"z\": 0, \"width\": 200, \"height\": 56}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_fund.asset_class\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_fund\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"asset_class\"}, \"Name\": \"dim_fund.asset_class\", \"NativeReferenceName\": \"asset_class\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 104,
+          "z": 0,
+          "width": 148,
+          "height": 88,
+          "config": "{\"name\": \"p1_k0\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 104, \"z\": 0, \"width\": 148, \"height\": 88}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"measure_table.Commitment\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Commitment\"}, \"Name\": \"measure_table.Commitment\", \"NativeReferenceName\": \"Commitment\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Commitment'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 173,
+          "y": 104,
+          "z": 0,
+          "width": 148,
+          "height": 88,
+          "config": "{\"name\": \"p1_k1\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 173, \"y\": 104, \"z\": 0, \"width\": 148, \"height\": 88}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"measure_table.Paid In\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Paid In\"}, \"Name\": \"measure_table.Paid In\", \"NativeReferenceName\": \"Paid In\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Paid In'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 330,
+          "y": 104,
+          "z": 0,
+          "width": 148,
+          "height": 88,
+          "config": "{\"name\": \"p1_k2\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 330, \"y\": 104, \"z\": 0, \"width\": 148, \"height\": 88}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"measure_table.Distributions\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Distributions\"}, \"Name\": \"measure_table.Distributions\", \"NativeReferenceName\": \"Distributions\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Distributions'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 487,
+          "y": 104,
+          "z": 0,
+          "width": 148,
+          "height": 88,
+          "config": "{\"name\": \"p1_k3\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 487, \"y\": 104, \"z\": 0, \"width\": 148, \"height\": 88}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"measure_table.NAV\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"NAV\"}, \"Name\": \"measure_table.NAV\", \"NativeReferenceName\": \"NAV\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'NAV'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 644,
+          "y": 104,
+          "z": 0,
+          "width": 148,
+          "height": 88,
+          "config": "{\"name\": \"p1_k4\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 644, \"y\": 104, \"z\": 0, \"width\": 148, \"height\": 88}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"measure_table.Unfunded\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Unfunded\"}, \"Name\": \"measure_table.Unfunded\", \"NativeReferenceName\": \"Unfunded\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Unfunded'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 801,
+          "y": 104,
+          "z": 0,
+          "width": 148,
+          "height": 88,
+          "config": "{\"name\": \"p1_k5\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 801, \"y\": 104, \"z\": 0, \"width\": 148, \"height\": 88}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"measure_table.DPI\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"DPI\"}, \"Name\": \"measure_table.DPI\", \"NativeReferenceName\": \"DPI\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'DPI'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 958,
+          "y": 104,
+          "z": 0,
+          "width": 148,
+          "height": 88,
+          "config": "{\"name\": \"p1_k6\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 958, \"y\": 104, \"z\": 0, \"width\": 148, \"height\": 88}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"measure_table.TVPI\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"TVPI\"}, \"Name\": \"measure_table.TVPI\", \"NativeReferenceName\": \"TVPI\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'TVPI'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1115,
+          "y": 104,
+          "z": 0,
+          "width": 148,
+          "height": 88,
+          "config": "{\"name\": \"p1_k7\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1115, \"y\": 104, \"z\": 0, \"width\": 148, \"height\": 88}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"measure_table.Net IRR\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Net IRR\"}, \"Name\": \"measure_table.Net IRR\", \"NativeReferenceName\": \"Net IRR\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Net IRR'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 206,
+          "z": 0,
+          "width": 760,
+          "height": 498,
+          "config": "{\"name\": \"p1_tbl\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 206, \"z\": 0, \"width\": 760, \"height\": 498}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_fund.fund_name\"}, {\"queryRef\": \"dim_fund.asset_class\"}, {\"queryRef\": \"dim_fund.vintage_year\"}, {\"queryRef\": \"measure_table.Commitment\"}, {\"queryRef\": \"measure_table.Paid In\"}, {\"queryRef\": \"measure_table.Distributions\"}, {\"queryRef\": \"measure_table.NAV\"}, {\"queryRef\": \"measure_table.DPI\"}, {\"queryRef\": \"measure_table.TVPI\"}, {\"queryRef\": \"measure_table.Net IRR\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_fund\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"fund_name\"}, \"Name\": \"dim_fund.fund_name\", \"NativeReferenceName\": \"fund_name\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"asset_class\"}, \"Name\": \"dim_fund.asset_class\", \"NativeReferenceName\": \"asset_class\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"vintage_year\"}, \"Name\": \"dim_fund.vintage_year\", \"NativeReferenceName\": \"vintage_year\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Commitment\"}, \"Name\": \"measure_table.Commitment\", \"NativeReferenceName\": \"Commitment\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Paid In\"}, \"Name\": \"measure_table.Paid In\", \"NativeReferenceName\": \"Paid In\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Distributions\"}, \"Name\": \"measure_table.Distributions\", \"NativeReferenceName\": \"Distributions\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"NAV\"}, \"Name\": \"measure_table.NAV\", \"NativeReferenceName\": \"NAV\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"DPI\"}, \"Name\": \"measure_table.DPI\", \"NativeReferenceName\": \"DPI\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"TVPI\"}, \"Name\": \"measure_table.TVPI\", \"NativeReferenceName\": \"TVPI\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Net IRR\"}, \"Name\": \"measure_table.Net IRR\", \"NativeReferenceName\": \"Net IRR\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Fund performance (net to LPs)'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 792,
+          "y": 206,
+          "z": 0,
+          "width": 472,
+          "height": 498,
+          "config": "{\"name\": \"p1_col\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 792, \"y\": 206, \"z\": 0, \"width\": 472, \"height\": 498}}], \"singleVisual\": {\"visualType\": \"clusteredColumnChart\", \"projections\": {\"Category\": [{\"queryRef\": \"dim_fund.vintage_year\"}], \"Y\": [{\"queryRef\": \"measure_table.Paid In\"}, {\"queryRef\": \"measure_table.Distributions\"}, {\"queryRef\": \"measure_table.NAV\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_fund\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"vintage_year\"}, \"Name\": \"dim_fund.vintage_year\", \"NativeReferenceName\": \"vintage_year\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Paid In\"}, \"Name\": \"measure_table.Paid In\", \"NativeReferenceName\": \"Paid In\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Distributions\"}, \"Name\": \"measure_table.Distributions\", \"NativeReferenceName\": \"Distributions\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"NAV\"}, \"Name\": \"measure_table.NAV\", \"NativeReferenceName\": \"NAV\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Paid-in, distributed and NAV by vintage'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ]
+    },
+    {
+      "name": "ReportSection02",
+      "displayName": "Investor Performance",
+      "displayOption": 1,
+      "width": 1280,
+      "height": 720,
+      "ordinal": 1,
+      "config": "{}",
+      "filters": "[]",
+      "visualContainers": [
+        {
+          "x": 16,
+          "y": 8,
+          "z": 0,
+          "width": 560,
+          "height": 44,
+          "config": "{\"name\": \"p2_title\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 8, \"z\": 0, \"width\": 560, \"height\": 44}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Investor Performance\", \"textStyle\": {\"fontWeight\": \"bold\", \"fontSize\": \"20pt\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 52,
+          "z": 0,
+          "width": 560,
+          "height": 40,
+          "config": "{\"name\": \"p2_sub\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 52, \"z\": 0, \"width\": 560, \"height\": 40}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"measure_table.Report Title\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Report Title\"}, \"Name\": \"measure_table.Report Title\", \"NativeReferenceName\": \"Report Title\"}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 640,
+          "y": 12,
+          "z": 0,
+          "width": 200,
+          "height": 56,
+          "config": "{\"name\": \"p2_s0\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 640, \"y\": 12, \"z\": 0, \"width\": 200, \"height\": 56}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_date.quarter_label\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_date\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"quarter_label\"}, \"Name\": \"dim_date.quarter_label\", \"NativeReferenceName\": \"quarter_label\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 850,
+          "y": 12,
+          "z": 0,
+          "width": 200,
+          "height": 56,
+          "config": "{\"name\": \"p2_s1\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 850, \"y\": 12, \"z\": 0, \"width\": 200, \"height\": 56}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_report_currency.currency_code\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_report_currency\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"currency_code\"}, \"Name\": \"dim_report_currency.currency_code\", \"NativeReferenceName\": \"currency_code\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1060,
+          "y": 12,
+          "z": 0,
+          "width": 200,
+          "height": 56,
+          "config": "{\"name\": \"p2_inv\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1060, \"y\": 12, \"z\": 0, \"width\": 200, \"height\": 56}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_investor.investor_name\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_investor\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"investor_name\"}, \"Name\": \"dim_investor.investor_name\", \"NativeReferenceName\": \"investor_name\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 104,
+          "z": 0,
+          "width": 1248,
+          "height": 600,
+          "config": "{\"name\": \"p2_mx\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 104, \"z\": 0, \"width\": 1248, \"height\": 600}}], \"singleVisual\": {\"visualType\": \"pivotTable\", \"projections\": {\"Rows\": [{\"queryRef\": \"dim_investor.investor_name\"}, {\"queryRef\": \"dim_fund.fund_name\"}], \"Values\": [{\"queryRef\": \"measure_table.Commitment\"}, {\"queryRef\": \"measure_table.Paid In\"}, {\"queryRef\": \"measure_table.Unfunded\"}, {\"queryRef\": \"measure_table.Distributions\"}, {\"queryRef\": \"measure_table.NAV\"}, {\"queryRef\": \"measure_table.DPI\"}, {\"queryRef\": \"measure_table.RVPI\"}, {\"queryRef\": \"measure_table.TVPI\"}, {\"queryRef\": \"measure_table.Net IRR\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_investor\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"dim_fund\", \"Type\": 0}, {\"Name\": \"t2\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"investor_name\"}, \"Name\": \"dim_investor.investor_name\", \"NativeReferenceName\": \"investor_name\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"fund_name\"}, \"Name\": \"dim_fund.fund_name\", \"NativeReferenceName\": \"fund_name\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"Commitment\"}, \"Name\": \"measure_table.Commitment\", \"NativeReferenceName\": \"Commitment\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"Paid In\"}, \"Name\": \"measure_table.Paid In\", \"NativeReferenceName\": \"Paid In\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"Unfunded\"}, \"Name\": \"measure_table.Unfunded\", \"NativeReferenceName\": \"Unfunded\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"Distributions\"}, \"Name\": \"measure_table.Distributions\", \"NativeReferenceName\": \"Distributions\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"NAV\"}, \"Name\": \"measure_table.NAV\", \"NativeReferenceName\": \"NAV\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"DPI\"}, \"Name\": \"measure_table.DPI\", \"NativeReferenceName\": \"DPI\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"RVPI\"}, \"Name\": \"measure_table.RVPI\", \"NativeReferenceName\": \"RVPI\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"TVPI\"}, \"Name\": \"measure_table.TVPI\", \"NativeReferenceName\": \"TVPI\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t2\"}}, \"Property\": \"Net IRR\"}, \"Name\": \"measure_table.Net IRR\", \"NativeReferenceName\": \"Net IRR\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Investor \\u00d7 fund (net)'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ]
+    },
+    {
+      "name": "ReportSection03",
+      "displayName": "NAV Bridge",
+      "displayOption": 1,
+      "width": 1280,
+      "height": 720,
+      "ordinal": 2,
+      "config": "{}",
+      "filters": "[]",
+      "visualContainers": [
+        {
+          "x": 16,
+          "y": 8,
+          "z": 0,
+          "width": 560,
+          "height": 44,
+          "config": "{\"name\": \"p3_title\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 8, \"z\": 0, \"width\": 560, \"height\": 44}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"NAV Bridge\", \"textStyle\": {\"fontWeight\": \"bold\", \"fontSize\": \"20pt\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 52,
+          "z": 0,
+          "width": 560,
+          "height": 40,
+          "config": "{\"name\": \"p3_sub\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 52, \"z\": 0, \"width\": 560, \"height\": 40}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"measure_table.Report Title\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Report Title\"}, \"Name\": \"measure_table.Report Title\", \"NativeReferenceName\": \"Report Title\"}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 640,
+          "y": 12,
+          "z": 0,
+          "width": 200,
+          "height": 56,
+          "config": "{\"name\": \"p3_s0\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 640, \"y\": 12, \"z\": 0, \"width\": 200, \"height\": 56}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_date.quarter_label\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_date\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"quarter_label\"}, \"Name\": \"dim_date.quarter_label\", \"NativeReferenceName\": \"quarter_label\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 850,
+          "y": 12,
+          "z": 0,
+          "width": 200,
+          "height": 56,
+          "config": "{\"name\": \"p3_s1\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 850, \"y\": 12, \"z\": 0, \"width\": 200, \"height\": 56}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_report_currency.currency_code\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_report_currency\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"currency_code\"}, \"Name\": \"dim_report_currency.currency_code\", \"NativeReferenceName\": \"currency_code\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 104,
+          "z": 0,
+          "width": 300,
+          "height": 56,
+          "config": "{\"name\": \"p3_f\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 104, \"z\": 0, \"width\": 300, \"height\": 56}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_fund.fund_name\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_fund\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"fund_name\"}, \"Name\": \"dim_fund.fund_name\", \"NativeReferenceName\": \"fund_name\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 332,
+          "y": 104,
+          "z": 0,
+          "width": 300,
+          "height": 56,
+          "config": "{\"name\": \"p3_i\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 332, \"y\": 104, \"z\": 0, \"width\": 300, \"height\": 56}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_investor.investor_name\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_investor\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"investor_name\"}, \"Name\": \"dim_investor.investor_name\", \"NativeReferenceName\": \"investor_name\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 176,
+          "z": 0,
+          "width": 820,
+          "height": 528,
+          "config": "{\"name\": \"p3_wf\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 176, \"z\": 0, \"width\": 820, \"height\": 528}}], \"singleVisual\": {\"visualType\": \"waterfallChart\", \"projections\": {\"Category\": [{\"queryRef\": \"gold_nav_bridge.component\"}], \"Y\": [{\"queryRef\": \"measure_table.Bridge Amount\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"gold_nav_bridge\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"component\"}, \"Name\": \"gold_nav_bridge.component\", \"NativeReferenceName\": \"component\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Bridge Amount\"}, \"Name\": \"measure_table.Bridge Amount\", \"NativeReferenceName\": \"Bridge Amount\"}], \"OrderBy\": [{\"Direction\": 1, \"Expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"component\"}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Opening NAV \\u2192 closing NAV for the quarter'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 852,
+          "y": 176,
+          "z": 0,
+          "width": 412,
+          "height": 528,
+          "config": "{\"name\": \"p3_tbl\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 852, \"y\": 176, \"z\": 0, \"width\": 412, \"height\": 528}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"projections\": {\"Values\": [{\"queryRef\": \"gold_nav_bridge.component\"}, {\"queryRef\": \"measure_table.Bridge Amount\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"gold_nav_bridge\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"component\"}, \"Name\": \"gold_nav_bridge.component\", \"NativeReferenceName\": \"component\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Bridge Amount\"}, \"Name\": \"measure_table.Bridge Amount\", \"NativeReferenceName\": \"Bridge Amount\"}], \"OrderBy\": [{\"Direction\": 1, \"Expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"component\"}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Bridge components'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ]
+    },
+    {
+      "name": "ReportSection04",
+      "displayName": "Investments",
+      "displayOption": 1,
+      "width": 1280,
+      "height": 720,
+      "ordinal": 3,
+      "config": "{}",
+      "filters": "[]",
+      "visualContainers": [
+        {
+          "x": 16,
+          "y": 8,
+          "z": 0,
+          "width": 560,
+          "height": 44,
+          "config": "{\"name\": \"p4_title\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 8, \"z\": 0, \"width\": 560, \"height\": 44}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Investments\", \"textStyle\": {\"fontWeight\": \"bold\", \"fontSize\": \"20pt\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 52,
+          "z": 0,
+          "width": 560,
+          "height": 40,
+          "config": "{\"name\": \"p4_sub\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 52, \"z\": 0, \"width\": 560, \"height\": 40}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"measure_table.Report Title\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Report Title\"}, \"Name\": \"measure_table.Report Title\", \"NativeReferenceName\": \"Report Title\"}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 640,
+          "y": 12,
+          "z": 0,
+          "width": 200,
+          "height": 56,
+          "config": "{\"name\": \"p4_s0\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 640, \"y\": 12, \"z\": 0, \"width\": 200, \"height\": 56}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_date.quarter_label\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_date\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"quarter_label\"}, \"Name\": \"dim_date.quarter_label\", \"NativeReferenceName\": \"quarter_label\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 850,
+          "y": 12,
+          "z": 0,
+          "width": 200,
+          "height": 56,
+          "config": "{\"name\": \"p4_s1\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 850, \"y\": 12, \"z\": 0, \"width\": 200, \"height\": 56}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_report_currency.currency_code\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_report_currency\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"currency_code\"}, \"Name\": \"dim_report_currency.currency_code\", \"NativeReferenceName\": \"currency_code\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1060,
+          "y": 12,
+          "z": 0,
+          "width": 200,
+          "height": 56,
+          "config": "{\"name\": \"p4_ac\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1060, \"y\": 12, \"z\": 0, \"width\": 200, \"height\": 56}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_fund.asset_class\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_fund\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"asset_class\"}, \"Name\": \"dim_fund.asset_class\", \"NativeReferenceName\": \"asset_class\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 104,
+          "z": 0,
+          "width": 190,
+          "height": 88,
+          "config": "{\"name\": \"p4_k0\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 104, \"z\": 0, \"width\": 190, \"height\": 88}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"measure_table.Cost Basis\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Cost Basis\"}, \"Name\": \"measure_table.Cost Basis\", \"NativeReferenceName\": \"Cost Basis\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Cost Basis'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 216,
+          "y": 104,
+          "z": 0,
+          "width": 190,
+          "height": 88,
+          "config": "{\"name\": \"p4_k1\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 216, \"y\": 104, \"z\": 0, \"width\": 190, \"height\": 88}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"measure_table.Fair Value\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Fair Value\"}, \"Name\": \"measure_table.Fair Value\", \"NativeReferenceName\": \"Fair Value\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Fair Value'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 416,
+          "y": 104,
+          "z": 0,
+          "width": 190,
+          "height": 88,
+          "config": "{\"name\": \"p4_k2\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 416, \"y\": 104, \"z\": 0, \"width\": 190, \"height\": 88}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"measure_table.Gross MOIC\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Gross MOIC\"}, \"Name\": \"measure_table.Gross MOIC\", \"NativeReferenceName\": \"Gross MOIC\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Gross MOIC'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 616,
+          "y": 104,
+          "z": 0,
+          "width": 190,
+          "height": 88,
+          "config": "{\"name\": \"p4_k3\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 616, \"y\": 104, \"z\": 0, \"width\": 190, \"height\": 88}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"measure_table.Gross IRR\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Gross IRR\"}, \"Name\": \"measure_table.Gross IRR\", \"NativeReferenceName\": \"Gross IRR\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Gross IRR'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 816,
+          "y": 104,
+          "z": 0,
+          "width": 216,
+          "height": 88,
+          "config": "{\"name\": \"p4_c0\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 816, \"y\": 104, \"z\": 0, \"width\": 216, \"height\": 88}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"measure_table.Principal Outstanding\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Principal Outstanding\"}, \"Name\": \"measure_table.Principal Outstanding\", \"NativeReferenceName\": \"Principal Outstanding\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Principal Outstanding'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1042,
+          "y": 104,
+          "z": 0,
+          "width": 216,
+          "height": 88,
+          "config": "{\"name\": \"p4_c1\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1042, \"y\": 104, \"z\": 0, \"width\": 216, \"height\": 88}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"measure_table.Accrued Interest\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Accrued Interest\"}, \"Name\": \"measure_table.Accrued Interest\", \"NativeReferenceName\": \"Accrued Interest\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Accrued Interest'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 816,
+          "y": 200,
+          "z": 0,
+          "width": 216,
+          "height": 88,
+          "config": "{\"name\": \"p4_c2\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 816, \"y\": 200, \"z\": 0, \"width\": 216, \"height\": 88}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"measure_table.Weighted Avg Coupon\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Weighted Avg Coupon\"}, \"Name\": \"measure_table.Weighted Avg Coupon\", \"NativeReferenceName\": \"Weighted Avg Coupon\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Weighted Avg Coupon'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 1042,
+          "y": 200,
+          "z": 0,
+          "width": 216,
+          "height": 88,
+          "config": "{\"name\": \"p4_c3\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 1042, \"y\": 200, \"z\": 0, \"width\": 216, \"height\": 88}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"measure_table.Non-Performing %\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Non-Performing %\"}, \"Name\": \"measure_table.Non-Performing %\", \"NativeReferenceName\": \"Non-Performing %\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Non-Performing %'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 300,
+          "z": 0,
+          "width": 1248,
+          "height": 404,
+          "config": "{\"name\": \"p4_tbl\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 300, \"z\": 0, \"width\": 1248, \"height\": 404}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"projections\": {\"Values\": [{\"queryRef\": \"dim_investment.investment_name\"}, {\"queryRef\": \"dim_investment.fund_name\"}, {\"queryRef\": \"dim_investment.instrument\"}, {\"queryRef\": \"dim_investment.sector\"}, {\"queryRef\": \"dim_investment.country\"}, {\"queryRef\": \"measure_table.Cost Basis\"}, {\"queryRef\": \"measure_table.Fair Value\"}, {\"queryRef\": \"measure_table.Mark to Cost\"}, {\"queryRef\": \"measure_table.Gross MOIC\"}, {\"queryRef\": \"measure_table.Gross IRR\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"dim_investment\", \"Type\": 0}, {\"Name\": \"t1\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"investment_name\"}, \"Name\": \"dim_investment.investment_name\", \"NativeReferenceName\": \"investment_name\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"fund_name\"}, \"Name\": \"dim_investment.fund_name\", \"NativeReferenceName\": \"fund_name\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"instrument\"}, \"Name\": \"dim_investment.instrument\", \"NativeReferenceName\": \"instrument\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"sector\"}, \"Name\": \"dim_investment.sector\", \"NativeReferenceName\": \"sector\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"country\"}, \"Name\": \"dim_investment.country\", \"NativeReferenceName\": \"country\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Cost Basis\"}, \"Name\": \"measure_table.Cost Basis\", \"NativeReferenceName\": \"Cost Basis\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Fair Value\"}, \"Name\": \"measure_table.Fair Value\", \"NativeReferenceName\": \"Fair Value\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Mark to Cost\"}, \"Name\": \"measure_table.Mark to Cost\", \"NativeReferenceName\": \"Mark to Cost\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Gross MOIC\"}, \"Name\": \"measure_table.Gross MOIC\", \"NativeReferenceName\": \"Gross MOIC\"}, {\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t1\"}}, \"Property\": \"Gross IRR\"}, \"Name\": \"measure_table.Gross IRR\", \"NativeReferenceName\": \"Gross IRR\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Investments held and realised (gross)'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ]
+    },
+    {
+      "name": "ReportSection05",
+      "displayName": "Data Quality",
+      "displayOption": 1,
+      "width": 1280,
+      "height": 720,
+      "ordinal": 4,
+      "config": "{}",
+      "filters": "[]",
+      "visualContainers": [
+        {
+          "x": 16,
+          "y": 8,
+          "z": 0,
+          "width": 560,
+          "height": 44,
+          "config": "{\"name\": \"p5_title\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 8, \"z\": 0, \"width\": 560, \"height\": 44}}], \"singleVisual\": {\"visualType\": \"textbox\", \"drillFilterOtherVisuals\": true, \"objects\": {\"general\": [{\"properties\": {\"paragraphs\": [{\"textRuns\": [{\"value\": \"Data Quality\", \"textStyle\": {\"fontWeight\": \"bold\", \"fontSize\": \"20pt\"}}]}]}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 640,
+          "y": 12,
+          "z": 0,
+          "width": 420,
+          "height": 56,
+          "config": "{\"name\": \"p5_run\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 640, \"y\": 12, \"z\": 0, \"width\": 420, \"height\": 56}}], \"singleVisual\": {\"visualType\": \"slicer\", \"projections\": {\"Values\": [{\"queryRef\": \"ops_dq_results.run_id\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"ops_dq_results\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"run_id\"}, \"Name\": \"ops_dq_results.run_id\", \"NativeReferenceName\": \"run_id\"}]}, \"objects\": {\"data\": [{\"properties\": {\"mode\": {\"expr\": {\"Literal\": {\"Value\": \"'Dropdown'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 64,
+          "z": 0,
+          "width": 240,
+          "height": 88,
+          "config": "{\"name\": \"p5_ok\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 64, \"z\": 0, \"width\": 240, \"height\": 88}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"measure_table.Checks Passed (latest run)\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Checks Passed (latest run)\"}, \"Name\": \"measure_table.Checks Passed (latest run)\", \"NativeReferenceName\": \"Checks Passed (latest run)\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Checks Passed (latest run)'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 272,
+          "y": 64,
+          "z": 0,
+          "width": 240,
+          "height": 88,
+          "config": "{\"name\": \"p5_ko\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 272, \"y\": 64, \"z\": 0, \"width\": 240, \"height\": 88}}], \"singleVisual\": {\"visualType\": \"card\", \"projections\": {\"Values\": [{\"queryRef\": \"measure_table.Checks Failed (latest run)\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"measure_table\", \"Type\": 0}], \"Select\": [{\"Measure\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"Checks Failed (latest run)\"}, \"Name\": \"measure_table.Checks Failed (latest run)\", \"NativeReferenceName\": \"Checks Failed (latest run)\"}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Checks Failed (latest run)'\"}}}}}]}}}",
+          "filters": "[]"
+        },
+        {
+          "x": 16,
+          "y": 168,
+          "z": 0,
+          "width": 1248,
+          "height": 536,
+          "config": "{\"name\": \"p5_tbl\", \"layouts\": [{\"id\": 0, \"position\": {\"x\": 16, \"y\": 168, \"z\": 0, \"width\": 1248, \"height\": 536}}], \"singleVisual\": {\"visualType\": \"tableEx\", \"projections\": {\"Values\": [{\"queryRef\": \"ops_dq_results.check_id\"}, {\"queryRef\": \"ops_dq_results.check_name\"}, {\"queryRef\": \"ops_dq_results.layer\"}, {\"queryRef\": \"ops_dq_results.severity\"}, {\"queryRef\": \"ops_dq_results.passed\"}, {\"queryRef\": \"ops_dq_results.failed_rows\"}, {\"queryRef\": \"ops_dq_results.detail\"}, {\"queryRef\": \"ops_dq_results.checked_at_utc\"}]}, \"drillFilterOtherVisuals\": true, \"prototypeQuery\": {\"Version\": 2, \"From\": [{\"Name\": \"t0\", \"Entity\": \"ops_dq_results\", \"Type\": 0}], \"Select\": [{\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"check_id\"}, \"Name\": \"ops_dq_results.check_id\", \"NativeReferenceName\": \"check_id\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"check_name\"}, \"Name\": \"ops_dq_results.check_name\", \"NativeReferenceName\": \"check_name\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"layer\"}, \"Name\": \"ops_dq_results.layer\", \"NativeReferenceName\": \"layer\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"severity\"}, \"Name\": \"ops_dq_results.severity\", \"NativeReferenceName\": \"severity\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"passed\"}, \"Name\": \"ops_dq_results.passed\", \"NativeReferenceName\": \"passed\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"failed_rows\"}, \"Name\": \"ops_dq_results.failed_rows\", \"NativeReferenceName\": \"failed_rows\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"detail\"}, \"Name\": \"ops_dq_results.detail\", \"NativeReferenceName\": \"detail\"}, {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"checked_at_utc\"}, \"Name\": \"ops_dq_results.checked_at_utc\", \"NativeReferenceName\": \"checked_at_utc\"}], \"OrderBy\": [{\"Direction\": 1, \"Expression\": {\"Column\": {\"Expression\": {\"SourceRef\": {\"Source\": \"t0\"}}, \"Property\": \"check_id\"}}}]}, \"vcObjects\": {\"title\": [{\"properties\": {\"show\": {\"expr\": {\"Literal\": {\"Value\": \"true\"}}}, \"text\": {\"expr\": {\"Literal\": {\"Value\": \"'Quality-gate results'\"}}}}}]}}}",
+          "filters": "[]"
+        }
+      ]
+    }
+  ]
+}
