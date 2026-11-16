@@ -43,9 +43,9 @@ RUN_ID = ""
 
 SOURCE_MAPPING = [
     {
-        "source_id": "citco_capital_account", "administrator": "CITCO", "entity": "capital_account",
-        "landing_subfolder": "citco", "file_regex": r"^CITCO_CAPACCT_(F\d+)_(\d{4}Q\d)_v(\d+)\.csv$",
-        "bronze_table": "bronze_citco_capital_account", "silver_table": "silver_capital_account",
+        "source_id": "tpa1_capital_account", "administrator": "TPA1", "entity": "capital_account",
+        "landing_subfolder": "tpa1", "file_regex": r"^TPA1_CAPACCT_(F\d+)_(\d{4}Q\d)_v(\d+)\.csv$",
+        "bronze_table": "bronze_tpa1_capital_account", "silver_table": "silver_capital_account",
         "date_format": "yyyyMMdd", "amount_format": "plain", "sign_convention": "as_is",
         "column_map": {"FUND_CODE": "fund_id", "INVESTOR_ID": "investor_id", "PERIOD_END": "period_end",
                        "BEG_CAP": "beginning_capital", "CONTRIB": "contributions", "DISTRIB": "distributions",
@@ -54,9 +54,9 @@ SOURCE_MAPPING = [
         "type_map": {}, "key_columns": ["fund_id", "investor_id", "period_end"],
     },
     {
-        "source_id": "alterdomus_capital_account", "administrator": "ALTER_DOMUS", "entity": "capital_account",
-        "landing_subfolder": "alterdomus", "file_regex": r"^ad_capital_account_(f\d+)_(\d{4}q\d)_v(\d+)\.csv$",
-        "bronze_table": "bronze_alterdomus_capital_account", "silver_table": "silver_capital_account",
+        "source_id": "tpa2_capital_account", "administrator": "TPA2", "entity": "capital_account",
+        "landing_subfolder": "tpa2", "file_regex": r"^tpa2_capital_account_(f\d+)_(\d{4}q\d)_v(\d+)\.csv$",
+        "bronze_table": "bronze_tpa2_capital_account", "silver_table": "silver_capital_account",
         "date_format": "yyyy-MM-dd", "amount_format": "thousands", "sign_convention": "as_is",
         "column_map": {"fund_id": "fund_id", "lp_id": "investor_id", "as_of_date": "period_end",
                        "opening_balance": "beginning_capital", "contributions": "contributions",
@@ -66,9 +66,9 @@ SOURCE_MAPPING = [
         "type_map": {}, "key_columns": ["fund_id", "investor_id", "period_end"],
     },
     {
-        "source_id": "citco_cashflow", "administrator": "CITCO", "entity": "cashflow",
-        "landing_subfolder": "citco", "file_regex": r"^CITCO_CASHFLOW_(F\d+)_(\d{4}Q\d)_v(\d+)\.csv$",
-        "bronze_table": "bronze_citco_cashflow", "silver_table": "silver_cashflow",
+        "source_id": "tpa1_cashflow", "administrator": "TPA1", "entity": "cashflow",
+        "landing_subfolder": "tpa1", "file_regex": r"^TPA1_CASHFLOW_(F\d+)_(\d{4}Q\d)_v(\d+)\.csv$",
+        "bronze_table": "bronze_tpa1_cashflow", "silver_table": "silver_cashflow",
         "date_format": "yyyyMMdd", "amount_format": "plain", "sign_convention": "absolute",
         "column_map": {"NOTICE_ID": "cashflow_id", "FUND_CODE": "fund_id", "INVESTOR_ID": "investor_id",
                        "VALUE_DATE": "cashflow_date", "TXN_CODE": "source_txn_type", "AMOUNT": "amount_local",
@@ -78,9 +78,9 @@ SOURCE_MAPPING = [
         "key_columns": ["cashflow_id"],
     },
     {
-        "source_id": "alterdomus_transactions", "administrator": "ALTER_DOMUS", "entity": "cashflow",
-        "landing_subfolder": "alterdomus", "file_regex": r"^ad_transactions_(f\d+)_(\d{4}q\d)_v(\d+)\.csv$",
-        "bronze_table": "bronze_alterdomus_transactions", "silver_table": "silver_cashflow",
+        "source_id": "tpa2_transactions", "administrator": "TPA2", "entity": "cashflow",
+        "landing_subfolder": "tpa2", "file_regex": r"^tpa2_transactions_(f\d+)_(\d{4}q\d)_v(\d+)\.csv$",
+        "bronze_table": "bronze_tpa2_transactions", "silver_table": "silver_cashflow",
         "date_format": "yyyy-MM-dd", "amount_format": "thousands", "sign_convention": "absolute",
         "column_map": {"txn_ref": "cashflow_id", "fund_id": "fund_id", "lp_id": "investor_id",
                        "settle_date": "cashflow_date", "txn_type": "source_txn_type", "amount": "amount_local",

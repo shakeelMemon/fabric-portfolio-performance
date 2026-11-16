@@ -18,7 +18,7 @@
 ## 2. Switching from demo data to real files
 
 1. Set `generate_demo_files = False` in `nb_99_run_all`. You can also remove `nb_01` from the workspace.
-2. Land administrator files in `Files/landing/citco/`, `Files/landing/alterdomus/` and so on. Delivery can be by Data Factory copy activity from SFTP, a OneLake shortcut, or the OneLake file explorer.
+2. Land administrator files in `Files/landing/tpa1/`, `Files/landing/tpa2/` and so on. Delivery can be by Data Factory copy activity from SFTP, a OneLake shortcut, or the OneLake file explorer.
 3. File names must match the `file_regex` in `ops_source_mapping`, and restatements carry `_v2`, `_v3`. To accept a new naming pattern, change the mapping row and re-run `nb_00_setup`.
 4. Maintain `Files/reference/*.csv` from the fund-accounting master. In production, replace them with a mirrored or shortcut source table.
 
@@ -56,7 +56,7 @@ Re-running is safe at any time. Files already processed are skipped, silver uses
 
 ## 5. Restatements
 
-Land the file with the next version suffix (for example `CITCO_CAPACCT_F01_2026Q2_v2.csv`). Bronze ingests it as a new file, and silver MERGE replaces the earlier version for the same business keys. `fact_snapshot.file_version` shows which version is live.
+Land the file with the next version suffix (for example `TPA1_CAPACCT_F01_2026Q2_v2.csv`). Bronze ingests it as a new file, and silver MERGE replaces the earlier version for the same business keys. `fact_snapshot.file_version` shows which version is live.
 
 ## 6. Onboarding a new administrator or source
 

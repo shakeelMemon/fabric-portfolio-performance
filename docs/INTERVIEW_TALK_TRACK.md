@@ -7,7 +7,7 @@ patterns I use at work for private-markets reporting."* All fund, LP and company
 
 > "It's an end-to-end Fabric build for PE and private-credit reporting.
 >
-> Two fund administrators, Citco for PE and Alter Domus for credit, send quarterly capital accounts and cashflow notices in different formats. They land in OneLake. A metadata-driven bronze layer ingests them as-is. Silver conforms them to one canonical contract, quarantines bad rows with a reason, and MERGEs on business keys, so a `_v2` restatement replaces `_v1`.
+> Two fund administrators, TPA 1 for PE and TPA 2 for credit, send quarterly capital accounts and cashflow notices in different formats. They land in OneLake. A metadata-driven bronze layer ingests them as-is. Silver conforms them to one canonical contract, quarantines bad rows with a reason, and MERGEs on business keys, so a `_v2` restatement replaces `_v1`.
 >
 > Gold is a star schema: cashflows, capital-account snapshots, commitments, positions and credit accruals, with every amount in fund, legal-entity, CAD and USD currency.
 >
@@ -18,7 +18,7 @@ patterns I use at work for private-markets reporting."* All fund, LP and company
 ## Walkthrough order (screen share, about 10 minutes)
 
 1. **Workspace:** Git-connected to `/fabric`. One lakehouse and nine notebooks. `nb_99_run_all` runs the DAG.
-2. **Landing files:** show a Citco file (UPPERCASE headers, `YYYYMMDD` dates, negative distributions) next to an Alter Domus file (snake_case headers, `"1,234.56"` amounts, a TOTAL footer row).
+2. **Landing files:** show a TPA 1 file (UPPERCASE headers, `YYYYMMDD` dates, negative distributions) next to a TPA 2 file (snake_case headers, `"1,234.56"` amounts, a TOTAL footer row).
 3. **`ops_source_mapping`:** onboarding another administrator is a configuration row, not a new notebook.
 4. **Silver quarantine:** 44 footer rows and 1 unknown LP, each with its reason. Bronze rows = silver + quarantined + superseded (DQ01).
 5. **Gold star schema:** open `fact_cashflow` and explain the contract. Amounts are always positive and `flow_category` gives the direction. Flows use the flow-date FX rate and balances the period-end rate.

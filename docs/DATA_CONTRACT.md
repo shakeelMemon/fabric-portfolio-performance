@@ -10,7 +10,7 @@
 
 | Column | Type | Rule |
 |---|---|---|
-| `cashflow_id` | string, PK | Administrator notice/transaction reference (Citco `NOTICE_ID`, Alter Domus `txn_ref`) |
+| `cashflow_id` | string, PK | Administrator notice/transaction reference (TPA 1 `NOTICE_ID`, TPA 2 `txn_ref`) |
 | `fund_id`, `investor_id`, `legal_entity_id` | string, FK | Must exist in `dim_fund`, `dim_investor`, `dim_legal_entity` (DQ10) |
 | `cashflow_date`, `date_key` | date, int `yyyyMMdd` | Value/settlement date; `date_key` → `dim_date` |
 | `quarter` | string `YYYYQn` | Calendar quarter of `cashflow_date` |

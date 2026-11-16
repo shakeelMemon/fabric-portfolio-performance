@@ -8,11 +8,13 @@ legal-entity currency, CAD or USD.
 
 It is a working portfolio project with synthetic data. All fund, investor and company names are fictional.
 
+![Solution architecture](docs/architecture.png)
+
 ```mermaid
 flowchart LR
   subgraph Sources["Fund administrators & market data"]
-    C[Citco<br/>PE capital accounts + notices]
-    A[Alter Domus<br/>PC capital accounts + transactions]
+    C[TPA 1<br/>PE capital accounts + notices]
+    A[TPA 2<br/>PC capital accounts + transactions]
     P[Portfolio monitoring<br/>valuations, loan tape, deal txns]
     X[FX rates]
   end
@@ -51,7 +53,7 @@ fabric/                          ← connect this folder to the Fabric workspace
   lh_portfolio.Lakehouse/
   nb_common.Notebook/            shared config, table/file helpers, XIRR, FX
   nb_00_setup.Notebook/          ops tables + source-mapping contract
-  nb_01_generate_source_files.Notebook/   synthetic Citco / Alter Domus / valuation / FX deliveries
+  nb_01_generate_source_files.Notebook/   synthetic TPA 1 / TPA 2 / valuation / FX deliveries
   nb_02_bronze.Notebook/         … nb_03_silver, nb_04_gold, nb_05_quality_gate
   nb_06_maintenance.Notebook/    OPTIMIZE + VACUUM
   nb_99_run_all.Notebook/        DAG orchestration + semantic-model reframe

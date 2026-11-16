@@ -8,7 +8,7 @@ A private-markets manager runs private equity (PE) and private credit (PC) funds
 * **investment reporting:** each deal's cost, fair value and gross performance, plus loan-level accruals for credit;
 * **performance attribution:** a NAV bridge per quarter in the currency each audience uses.
 
-Data arrives as quarterly files from two fund administrators (Citco for PE, Alter Domus for PC), a
+Data arrives as quarterly files from two fund administrators (TPA 1 for PE, TPA 2 for PC), a
 portfolio-monitoring system and an FX source. The previous process depended on manual spreadsheets,
 and every audience computed IRR slightly differently.
 
@@ -27,10 +27,10 @@ and every audience computed IRR slightly differently.
 ```mermaid
 flowchart TB
   subgraph bronze
-    b1[bronze_citco_capital_account]:::b
-    b2[bronze_alterdomus_capital_account]:::b
-    b3[bronze_citco_cashflow]:::b
-    b4[bronze_alterdomus_transactions]:::b
+    b1[bronze_tpa1_capital_account]:::b
+    b2[bronze_tpa2_capital_account]:::b
+    b3[bronze_tpa1_cashflow]:::b
+    b4[bronze_tpa2_transactions]:::b
     b5[bronze_pm_valuations / deal_transactions]:::b
     b6[bronze_fx_rates]:::b
   end
@@ -77,7 +77,7 @@ flowchart TB
 3. **Metadata-driven ingestion.** Onboarding another administrator is a new row in `ops_source_mapping` (regex, column map, formats). It needs no new notebook.
 4. **Quality gate before the semantic-model reframe.**
    * Automatic Direct Lake updates are switched off, and `nb_99_run_all` reframes the model only after all ERROR checks pass.
-   * In the test scenario, Citco's first Q2 file over-states one LP by 25,000. DQ08 (LP capital vs portfolio valuation) blocks the release, and the v2 restatement then passes.
+   * In the test scenario, TPA 1's first Q2 file over-states one LP by 25,000. DQ08 (LP capital vs portfolio valuation) blocks the release, and the v2 restatement then passes.
 5. **No default-lakehouse dependency.** Paths are absolute OneLake (`abfss://`) paths, and tables are read and written by path. The same notebook therefore works interactively, under `runMultiple`, in a pipeline and in another workspace.
 6. **The same code runs locally.** `local/run_local.py` executes the Git-synced `notebook-content.py` files on local Spark.
    * Parquet is used instead of Delta, and `merge_table` emulates MERGE.

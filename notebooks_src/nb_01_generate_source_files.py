@@ -4,12 +4,12 @@
 # without client data:
 # | Source | Format quirks | Lands in |
 # |---|---|---|
-# | **Citco** (private equity funds) — capital account + cashflow notices | UPPERCASE headers, `YYYYMMDD` dates, distributions signed negative, `_vN` restatements | `Files/landing/citco/` |
-# | **Alter Domus** (private credit funds) — capital account + transactions | snake_case headers, ISO dates, `"1,234.56"` amounts, wordy txn types, trailing TOTAL row | `Files/landing/alterdomus/` |
+# | **TPA 1** (private equity funds) — capital account + cashflow notices | UPPERCASE headers, `YYYYMMDD` dates, distributions signed negative, `_vN` restatements | `Files/landing/tpa1/` |
+# | **TPA 2** (private credit funds) — capital account + transactions | snake_case headers, ISO dates, `"1,234.56"` amounts, wordy txn types, trailing TOTAL row | `Files/landing/tpa2/` |
 # | **Portfolio monitoring** — valuations, loan tape, deal transactions | one file per quarter | `Files/landing/portfolio_monitoring/` |
 # | **FX** — daily `usd_per_unit` | one file per quarter | `Files/landing/fx/` |
 # | **Reference** — funds, investors, legal entities, investments, commitments | CSV | `Files/reference/` |
-# Deliberate data-quality defects (the quality gate must catch or absorb them): a duplicated Citco
+# Deliberate data-quality defects (the quality gate must catch or absorb them): a duplicated TPA 1
 # notice, an unknown LP (`INV999`), TOTAL footer rows, and a mis-stated 2026Q2 F01 capital account
 # that is restated (`_v2`) with the 2026Q3 delivery.
 # The economics are internally consistent: fund NAV = Σ investment fair value + accrued interest;
@@ -38,12 +38,12 @@ LEGAL_ENTITIES = pd.DataFrame([
 ], columns=["legal_entity_id", "legal_entity_name", "jurisdiction", "functional_currency"])
 
 FUNDS = pd.DataFrame([
-    ("F01", "Aurora Global Buyout III",    "Private Equity", "Buyout",                2022, "USD", "CITCO",       "2022Q1", 0.0175),
-    ("F02", "Aurora Canadian Growth II",   "Private Equity", "Growth Equity",         2022, "CAD", "CITCO",       "2022Q1", 0.0200),
-    ("F03", "Aurora Secondaries I",        "Private Equity", "Secondaries",           2023, "USD", "CITCO",       "2023Q1", 0.0125),
-    ("F04", "Aurora Senior Credit I",      "Private Credit", "Senior Direct Lending", 2022, "USD", "ALTER_DOMUS", "2022Q1", 0.0100),
-    ("F05", "Aurora Canadian Credit II",   "Private Credit", "Unitranche",            2023, "CAD", "ALTER_DOMUS", "2023Q2", 0.0125),
-    ("F06", "Aurora European Credit I",    "Private Credit", "Senior Direct Lending", 2024, "EUR", "ALTER_DOMUS", "2024Q1", 0.0100),
+    ("F01", "Aurora Global Buyout III",    "Private Equity", "Buyout",                2022, "USD", "TPA1", "2022Q1", 0.0175),
+    ("F02", "Aurora Canadian Growth II",   "Private Equity", "Growth Equity",         2022, "CAD", "TPA1", "2022Q1", 0.0200),
+    ("F03", "Aurora Secondaries I",        "Private Equity", "Secondaries",           2023, "USD", "TPA1", "2023Q1", 0.0125),
+    ("F04", "Aurora Senior Credit I",      "Private Credit", "Senior Direct Lending", 2022, "USD", "TPA2", "2022Q1", 0.0100),
+    ("F05", "Aurora Canadian Credit II",   "Private Credit", "Unitranche",            2023, "CAD", "TPA2", "2023Q2", 0.0125),
+    ("F06", "Aurora European Credit I",    "Private Credit", "Senior Direct Lending", 2024, "EUR", "TPA2", "2024Q1", 0.0100),
 ], columns=["fund_id", "fund_name", "asset_class", "strategy", "vintage_year", "fund_currency",
             "administrator", "first_quarter", "mgmt_fee_rate"])
 FUNDS["first_close_date"] = FUNDS["first_quarter"].map(lambda q: quarter_start(q) + dt.timedelta(days=14))
@@ -309,10 +309,10 @@ def money(x):
     return f"{x:,.2f}"
 
 
-AD_TYPES = {"CONTRIBUTION": "Capital Call", "CONTRIBUTION_FEES": "Capital Call - Management Fees",
+TPA2_TYPES = {"CONTRIBUTION": "Capital Call", "CONTRIBUTION_FEES": "Capital Call - Management Fees",
             "DISTRIBUTION_ROC": "Distribution - Return of Capital", "DISTRIBUTION_GAIN": "Distribution - Realized Gain",
             "DISTRIBUTION_INCOME": "Distribution - Income"}
-CITCO_TYPES = {"CONTRIBUTION": "CALL", "CONTRIBUTION_FEES": "CALL_FEE", "DISTRIBUTION_ROC": "DIST_ROC",
+TPA1_TYPES = {"CONTRIBUTION": "CALL", "CONTRIBUTION_FEES": "CALL_FEE", "DISTRIBUTION_ROC": "DIST_ROC",
                "DISTRIBUTION_GAIN": "DIST_GAIN", "DISTRIBUTION_INCOME": "DIST_INC"}
 
 
@@ -323,7 +323,7 @@ def render_quarter(q):
             continue
         ca = CAPITAL[(CAPITAL.fund_id == f.fund_id) & (CAPITAL.quarter == q)].copy()
         nt = NOTICES[(NOTICES.fund_id == f.fund_id) & (NOTICES.quarter == q)].copy()
-        if f.administrator == "CITCO":
+        if f.administrator == "TPA1":
             out = pd.DataFrame({"FUND_CODE": ca.fund_id, "INVESTOR_ID": ca.investor_id, "PERIOD_END": ca.period_end.map(ymd),
                                 "BEG_CAP": ca.beginning_capital, "CONTRIB": ca.contributions, "DISTRIB": ca.distributions,
                                 "MGMT_FEE": ca.management_fees, "INCOME": ca.net_income, "REALIZED_GL": ca.realized_gl,
@@ -331,17 +331,17 @@ def render_quarter(q):
             if f.fund_id == "F01" and q == "2026Q2":     # v1 mis-states one LP's valuation; v2 follows next quarter
                 bad = out.copy()
                 bad.loc[bad.index[0], ["UNREALIZED_GL", "END_CAP"]] += 25_000.0
-                files[f"citco/CITCO_CAPACCT_{f.fund_id}_{q}_v1.csv"] = (q, to_csv(bad))
-                files[f"citco/CITCO_CAPACCT_{f.fund_id}_{q}_v2.csv"] = ("2026Q3", to_csv(out))
+                files[f"tpa1/TPA1_CAPACCT_{f.fund_id}_{q}_v1.csv"] = (q, to_csv(bad))
+                files[f"tpa1/TPA1_CAPACCT_{f.fund_id}_{q}_v2.csv"] = ("2026Q3", to_csv(out))
             else:
-                files[f"citco/CITCO_CAPACCT_{f.fund_id}_{q}_v1.csv"] = (q, to_csv(out))
+                files[f"tpa1/TPA1_CAPACCT_{f.fund_id}_{q}_v1.csv"] = (q, to_csv(out))
             sign = nt.type.str.startswith("DISTRIBUTION").map({True: -1.0, False: 1.0})
             cf = pd.DataFrame({"NOTICE_ID": [f"C-{f.fund_id}-{q}-{s:05d}" for s in nt.seq], "FUND_CODE": nt.fund_id,
                                "INVESTOR_ID": nt.investor_id, "VALUE_DATE": nt.date.map(ymd),
-                               "TXN_CODE": nt.type.map(CITCO_TYPES), "AMOUNT": (nt.amount * sign).round(2), "CCY": nt.currency})
+                               "TXN_CODE": nt.type.map(TPA1_TYPES), "AMOUNT": (nt.amount * sign).round(2), "CCY": nt.currency})
             if f.fund_id == "F02" and q == "2024Q2":     # administrator re-sent one notice line
                 cf = pd.concat([cf, cf.iloc[[2]]], ignore_index=True)
-            files[f"citco/CITCO_CASHFLOW_{f.fund_id}_{q}_v1.csv"] = (q, to_csv(cf))
+            files[f"tpa1/TPA1_CASHFLOW_{f.fund_id}_{q}_v1.csv"] = (q, to_csv(cf))
         else:
             out = pd.DataFrame({"fund_id": ca.fund_id, "lp_id": ca.investor_id, "as_of_date": ca.period_end.map(str),
                                 "opening_balance": ca.beginning_capital.map(money), "contributions": ca.contributions.map(money),
@@ -353,13 +353,13 @@ def render_quarter(q):
                 junk = out.iloc[[0]].copy()
                 junk["lp_id"] = "INV999"
                 out = pd.concat([out, junk], ignore_index=True)
-            files[f"alterdomus/ad_capital_account_{f.fund_id.lower()}_{q.lower()}_v1.csv"] = (q, to_csv(out))
-            tx = pd.DataFrame({"txn_ref": [f"AD-{f.fund_id}-{s:06d}" for s in nt.seq], "fund_id": nt.fund_id,
-                               "lp_id": nt.investor_id, "settle_date": nt.date.map(str), "txn_type": nt.type.map(AD_TYPES),
+            files[f"tpa2/tpa2_capital_account_{f.fund_id.lower()}_{q.lower()}_v1.csv"] = (q, to_csv(out))
+            tx = pd.DataFrame({"txn_ref": [f"TPA2-{f.fund_id}-{s:06d}" for s in nt.seq], "fund_id": nt.fund_id,
+                               "lp_id": nt.investor_id, "settle_date": nt.date.map(str), "txn_type": nt.type.map(TPA2_TYPES),
                                "amount": nt.amount.map(money), "currency": nt.currency})
             total = pd.DataFrame([{"txn_ref": "TOTAL", "fund_id": "", "lp_id": "", "settle_date": "", "txn_type": "",
                                    "amount": money(nt.amount.sum()), "currency": ""}])
-            files[f"alterdomus/ad_transactions_{f.fund_id.lower()}_{q.lower()}_v1.csv"] = (q, to_csv(pd.concat([tx, total])))
+            files[f"tpa2/tpa2_transactions_{f.fund_id.lower()}_{q.lower()}_v1.csv"] = (q, to_csv(pd.concat([tx, total])))
     pos = POSITIONS[POSITIONS.as_of_date == quarter_end(q)]
     files[f"portfolio_monitoring/valuations_{q}.csv"] = (q, to_csv(pos))
     dtx = DEAL_TXNS[DEAL_TXNS.quarter == q].drop(columns=["quarter"]).copy()

@@ -1,6 +1,6 @@
 """End-to-end: runs the real Fabric notebooks locally through three deliveries.
 
-1. administrators deliver through 2026Q2. Citco's F01 Q2 capital account over-states one LP by 25,000,
+1. administrators deliver through 2026Q2. TPA 1's F01 Q2 capital account over-states one LP by 25,000,
    so LP capital no longer ties to the portfolio valuation: the gate must FAIL (DQ08) and block release.
 2. the 2026Q3 delivery arrives together with F01 Q2 v2 (restatement): the gate must pass.
 3. the same run again with nothing new (must be a no-op for bronze/silver)
@@ -87,7 +87,7 @@ def test_bad_rows_quarantined_not_loaded(lakehouse):
     assert q.reason.str.contains("footer/total row").sum() == 44
     assert "INV999" not in set(table(root, "silver_capital_account").investor_id)
     cf = table(root, "silver_cashflow")
-    assert not cf.cashflow_id.duplicated().any()                       # re-sent Citco notice deduplicated
+    assert not cf.cashflow_id.duplicated().any()                       # re-sent TPA 1 notice deduplicated
 
 
 def test_gold_irr_recomputes_from_fact_flows(lakehouse, common_ns):
